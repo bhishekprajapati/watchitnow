@@ -6,31 +6,35 @@
   body {
     @apply bg-dark-blue;
   }
+
+  span {
+    @apply inline-block;
+  }
 }
 
 @layer components {
   .text {
     &-heading {
       &-lg {
-        @apply text-[2rem] font-light leading-normal tracking-[-0.03125rem];
+        @apply text-white text-[2rem] font-light leading-normal tracking-[-0.03125rem];
       }
       &-md {
-        @apply text-[1.5rem] font-light leading-normal;
+        @apply text-white text-[1.5rem] font-light leading-normal;
       }
       &-sm {
-        @apply text-[1.5rem] font-medium leading-normal;
+        @apply text-white text-[1.5rem] font-medium leading-normal;
       }
       &-xs {
-        @apply text-[1.125rem] font-medium leading-normal;
+        @apply text-white text-[1.125rem] font-medium leading-normal;
       }
     }
 
     &-body {
       &-md {
-        @apply text-[0.9375rem] font-light leading-normal;
+        @apply text-white text-[0.9375rem] font-light leading-normal;
       }
       &-sm {
-        @apply text-[0.8125rem] font-light leading-normal;
+        @apply text-white text-[0.8125rem] font-light leading-normal;
       }
     }
   }

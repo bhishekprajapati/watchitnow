@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <>
-      <main></main>
-    </>
-  );
+import { redirect } from "next/navigation";
+
+export default function IndexPage() {
+  redirect("/app");
 }

@@ -1,12 +1,6 @@
-import { Outfit } from "next/font/google";
 import "./globals.css";
-
+import { Outfit } from "next/font/google";
 const outfit = Outfit({ style: ["normal"], preload: true, subsets: ["latin"] });
-
-export const metadata = {
-  title: "WatchItNow!",
-  description: "Entertainment web app",
-};
 
 export default function RootLayout({ children }) {
   return (
