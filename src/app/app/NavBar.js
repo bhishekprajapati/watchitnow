@@ -21,9 +21,41 @@ export default function NavBar() {
 
       <ul>
         <li>
-          <Link href="/app">
+          <Link href="/app/home">
             <IconHome
-              className={`nav-link ${pathName === "/app" ? "active" : ""}`}
+              className={`nav-link ${pathName === "/app/home" ? "active" : ""}`}
+              fill="true"
+            />
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/app/movies">
+            <IconMovie
+              className={`nav-link fill-none ${
+                pathName === "/app/movies" ? "active" : ""
+              }`}
+            />
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/app/tv-series">
+            <IconDeviceTv
+              className={`nav-link fill-none ${
+                pathName === "/app/tv-series" ? "active" : ""
+              }`}
+              fill="true"
+            />
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/app/bookmarks">
+            <IconBookmark
+              className={`nav-link ${
+                pathName === "/app/bookmarks" ? "active" : ""
+              }`}
               fill="true"
             />
           </Link>

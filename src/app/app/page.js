@@ -1,8 +1,5 @@
-export const metadata = {
-  title: "WatchItNow!",
-  description: "Entertainment web app",
-};
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <></>;
+  redirect("/app/home");
 }
