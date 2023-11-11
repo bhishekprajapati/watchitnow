@@ -19,7 +19,7 @@ export default function NavBar() {
         <Image width={24} height={24} src="/logo.svg" alt="site-logo" />
       </Link>
 
-      <ul>
+      <ul className="flex gap-x-5 md:gap-x-6 lg:block lg:gap-x-0 lg:[&>:not(:last-child)]:mb-8">
         <li>
           <Link href="/app/home">
             <IconHome
