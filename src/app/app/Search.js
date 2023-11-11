@@ -23,7 +23,7 @@ export default function Search() {
   return (
     <>
       <div className="flex gap-x-6">
-        <label for="search" className="cursor-pointer mt-[0.5rem]">
+        <label htmlFor="search" className="cursor-pointer mt-[0.5rem]">
           <IconSearch className="text-white" stroke={2.5} />
         </label>
         <div className="flex-1 overflow-hidden">
