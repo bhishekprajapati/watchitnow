@@ -4,7 +4,7 @@ import Search from "./Search";
 export default function DashboardLayout({ children }) {
   return (
     <>
-      <div className="w-screen h-screen overflow-hidden md:p-[1.56rem] lg:p-8 lg:py-0 lg:pr-0 lg:flex lg:gap-x-9">
+      <div className="lg:w-screen lg:h-screen lg:overflow-hidden md:p-[1.56rem] lg:p-8 lg:py-0 lg:pr-0 lg:flex lg:gap-x-9">
         <header className="lg:py-8">
           <NavBar />
         </header>

@@ -3,6 +3,6 @@ export const metadata = {
   description: "Entertainment web app",
 };
 
-export default function Page() {
+export default async function Page() {
   return <></>;
 }
