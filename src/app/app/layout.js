@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }) {
         </header>
         <main className="flex-1">
           <div className="pt-6 px-5 md:px-0 lg:pt-12 lg:w-full lg:h-full lg:overflow-y-auto">
-            <div className="lg:pr-8">
+            <div className="lg:pr-8 mb-4">
               <Search />
             </div>
             {children}

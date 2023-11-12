@@ -25,11 +25,10 @@ function formatResults(results) {
   }));
 }
 
-export async function getTrending() {
+export async function getTrending(params = { by: "day" }) {
   try {
-    const url = `${config.baseUrl}/3/trending/all/day?api_key=${config.key}`;
+    const url = `${config.baseUrl}/3/trending/all/${params.by}?api_key=${config.key}`;
     const res = await fetch(url);
-    console.log(res);
 
     if (!res.ok) {
       return { error: res.statusText };
