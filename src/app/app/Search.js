@@ -8,12 +8,16 @@ export default function Search() {
   let placeholder;
 
   switch (pathname) {
-    case "/movies":
+    case "/app/movies":
       placeholder = "Search for movies";
       break;
 
-    case "/tv-series":
+    case "/app/tv-series":
       placeholder = "Search for TV series";
+      break;
+
+    case "/app/bookmarks":
+      placeholder = "Search from bookmarked";
       break;
 
     default:
