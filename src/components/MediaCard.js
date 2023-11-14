@@ -1,3 +1,5 @@
+import MediaCardImageAndHoverCard from "./MediaCardImageAndHoverCard";
+
 import { IconDeviceTv } from "@tabler/icons-react";
 import { IconMovie } from "@tabler/icons-react";
 
@@ -8,33 +10,12 @@ import { IconMovie } from "@tabler/icons-react";
  */
 
 export default function MediaCard({ data }) {
-  const { title, year, posterPath, lang } = data;
+  const { title, year, lang } = data;
   const isMovie = data.type === "movie";
 
   return (
     <article>
-      <picture className="w-full h-[12rem] overflow-hidden rounded-2xl">
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/original${posterPath}`}
-          media="(min-width: 1800px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w780${posterPath}`}
-          media="(min-width: 1260px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w500${posterPath}`}
-          media="(min-width: 768px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w342${posterPath}`}
-          media="(min-width: 425px)"
-        />
-        <img
-          className="w-full h-full object-cover object-center"
-          src={`https://www.themoviedb.org/t/p/w154${posterPath}`}
-        />
-      </picture>
+      <MediaCardImageAndHoverCard data={data} />
       <div>
         <div className="flex items-center gap-x-[0.38rem]">
           <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
