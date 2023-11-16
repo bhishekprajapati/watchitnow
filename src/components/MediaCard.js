@@ -4,7 +4,7 @@ import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
 
 export function MediaCardLoadingSkeleton() {
   return (
-    <article className="bg-semi-dark-blue/50 rounded-xl">
+    <article className="bg-semi-dark-blue/75 shadow-md shadow-semi-dark-blue rounded-xl">
       <div className="w-full h-[12rem] p-8 flex items-center justify-center">
         <IconPhoto
           className="w-full h-full text-dark-blue animate-pulse"
