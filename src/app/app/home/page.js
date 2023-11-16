@@ -7,8 +7,16 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const trendingByDay = await getTrending();
-  const trendingByWeek = await getTrending({ by: "week" });
+  async function provideTrendingByDayData() {
+    const trendingByDay = await getTrending();
+    return trendingByDay.data;
+  }
+
+  async function provideTrendingByWeekData() {
+    const trendingByWeek = await getTrending({ by: "week" });
+    return trendingByWeek.data;
+  }
+
   return (
     <div>
       <section className="mb-6 md:mb-8 lg:mb-10">
@@ -17,7 +25,7 @@ export default async function Page() {
             Daily Trending
           </h2>
         </header>
-        <MediaGrid dataList={trendingByDay.data} />
+        <MediaGrid dataProvider={provideTrendingByDayData} />
       </section>
       <section>
         <header>
@@ -25,7 +33,7 @@ export default async function Page() {
             Weekly Trending
           </h2>
         </header>
-        <MediaGrid dataList={trendingByWeek.data} />
+        <MediaGrid dataProvider={provideTrendingByWeekData} />
       </section>
     </div>
   );

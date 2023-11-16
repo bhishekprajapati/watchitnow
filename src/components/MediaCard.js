@@ -1,7 +1,27 @@
 import MediaCardImageAndHoverCard from "./MediaCardImageAndHoverCard";
 
-import { IconDeviceTv } from "@tabler/icons-react";
-import { IconMovie } from "@tabler/icons-react";
+import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
+
+export function MediaCardLoadingSkeleton() {
+  return (
+    <article className="bg-semi-dark-blue/50 rounded-xl">
+      <div className="w-full h-[12rem] p-8 flex items-center justify-center">
+        <IconPhoto
+          className="w-full h-full text-dark-blue animate-pulse"
+          stroke={2}
+        />
+      </div>
+      <div className="p-4">
+        <div className="mb-2 flex gap-x-2 rounded-md animate-pulse overflow-hidden">
+          <span className="h-4 bg-dark-blue flex-1"></span>
+          <span className="h-4 bg-dark-blue flex-1"></span>
+          <span className="h-4 bg-dark-blue flex-1"></span>
+        </div>
+        <div className="h-4 bg-dark-blue rounded-md animate-pulse"></div>
+      </div>
+    </article>
+  );
+}
 
 /**
  * Supported Image sizes:
