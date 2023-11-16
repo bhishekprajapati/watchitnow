@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
             <div className="lg:pr-8 mb-4">
               <Search />
             </div>
-            {children}
+            <div className="lg:pr-8">{children}</div>
           </div>
         </main>
       </div>

@@ -44,3 +44,24 @@ export async function getTrending(params = { by: "day" }) {
     return { error: "Something went wrong!" };
   }
 }
+
+export async function search({ slug, type }) {
+  try {
+    const url = `${config.baseUrl}/3/search/${type}?api_key=${config.key}&query=${slug}`;
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      return { error: res.statusText };
+    }
+
+    const { page, results, total_pages, total_results } = await res.json();
+    return transformResponse(formatResults(results), {
+      page,
+      total_pages,
+      total_results,
+    });
+  } catch (err) {
+    console.log(err);
+    return { error: "Something went wrong!" };
+  }
+}

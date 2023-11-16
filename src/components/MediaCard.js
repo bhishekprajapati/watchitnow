@@ -35,7 +35,7 @@ export default function MediaCard({ data }) {
           <span className="w-[0.125rem] h-[0.125rem] bg-white bg-opacity-75 rounded-full"></span>
 
           <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
-            {lang.toUpperCase()}
+            {lang?.toUpperCase() || ""}
           </span>
         </div>
         <h2 className="text-[0.875rem] md:text-[1.125rem] text-white font-medium line-clamp-1">
