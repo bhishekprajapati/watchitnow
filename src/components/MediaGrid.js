@@ -27,11 +27,11 @@ export function MediaGridLoadingSkeleton() {
   return <Grid>{cards}</Grid>;
 }
 
-async function MediaGrid({ dataProvider }) {
+async function MediaGrid({ dataProvider, fallback = <></> }) {
   const dataList = await dataProvider();
 
   if (!dataList.length) {
-    return <h2>Something went wrong!</h2>;
+    return fallback;
   }
 
   const mediaList = dataList.map((data) => {
@@ -45,10 +45,10 @@ async function MediaGrid({ dataProvider }) {
   return <Grid>{mediaList}</Grid>;
 }
 
-export default async function MediaGridWithLoadingState({ dataProvider }) {
+export default async function MediaGridWithLoadingState(props) {
   return (
     <Suspense fallback={<MediaGridLoadingSkeleton />}>
-      <MediaGrid dataProvider={dataProvider} />
+      <MediaGrid {...props} />
     </Suspense>
   );
 }

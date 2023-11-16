@@ -18,16 +18,18 @@ function NoContent({ query }) {
 }
 
 export default async function SearchPage({ searchParams }) {
-  const { data } = await search(searchParams);
+  async function provideSearchResults() {
+    const { data } = await search(searchParams);
+    return data;
+  }
 
   return (
     <>
       <h1 className="mb-6 text-heading-lg font-medium">Search Results</h1>
-      {data.length ? (
-        <MediaGrid dataList={data} />
-      ) : (
-        <NoContent query={searchParams.slug} />
-      )}
+      <MediaGrid
+        dataProvider={provideSearchResults}
+        fallback={<NoContent query={searchParams.slug} />}
+      />
     </>
   );
 }
