@@ -30,6 +30,12 @@ export function MediaGridLoadingSkeleton() {
 async function MediaGrid({ dataProvider, fallback = <></> }) {
   const dataList = await dataProvider();
 
+  // when dataList is not array
+  if (!Array.isArray(dataList)) {
+    throw new Error("Data Provider must return an array!");
+  }
+
+  // dataList is empty
   if (!dataList.length) {
     return fallback;
   }
