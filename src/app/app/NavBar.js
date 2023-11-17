@@ -14,8 +14,8 @@ export default function NavBar() {
   const pathName = usePathname();
 
   return (
-    <nav className="px-4 py-[1.12rem] bg-semi-dark-blue md:rounded-2xl lg:h-full lg:px-8 lg:py-9 flex lg:flex-col justify-between">
-      <Link className="w-6 h-[1.125rem] md:w-8 md:h-[1.6rem]" href="/">
+    <nav className="px-4 py-[1.12rem] bg-gradient-to-tr md:bg-gradient-to-b from-semi-dark-blue/10 to-semi-dark-blue/50 md:rounded-2xl lg:h-full lg:px-8 lg:py-9 flex lg:flex-col justify-between">
+      <Link href="/">
         <Image width={24} height={24} src="/logo.svg" alt="site-logo" />
       </Link>
 
