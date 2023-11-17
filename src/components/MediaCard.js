@@ -1,5 +1,3 @@
-import MediaCardImageAndHoverCard from "./MediaCardImageAndHoverCard";
-
 import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
 
 export function MediaCardLoadingSkeleton() {
@@ -30,12 +28,33 @@ export function MediaCardLoadingSkeleton() {
  */
 
 export default function MediaCard({ data }) {
-  const { title, year, lang } = data;
+  const { title, year, lang, posterPath } = data;
   const isMovie = data.type === "movie";
 
   return (
     <article>
-      <MediaCardImageAndHoverCard data={data} />
+      <picture className="relative group w-full h-[12rem]">
+        <source
+          srcSet={`https://www.themoviedb.org/t/p/original${posterPath}`}
+          media="(min-width: 1800px)"
+        />
+        <source
+          srcSet={`https://www.themoviedb.org/t/p/w780${posterPath}`}
+          media="(min-width: 1260px)"
+        />
+        <source
+          srcSet={`https://www.themoviedb.org/t/p/w500${posterPath}`}
+          media="(min-width: 768px)"
+        />
+        <source
+          srcSet={`https://www.themoviedb.org/t/p/w342${posterPath}`}
+          media="(min-width: 425px)"
+        />
+        <img
+          className="w-full h-full rounded-2xl object-cover object-center"
+          src={`https://www.themoviedb.org/t/p/w154${posterPath}`}
+        />
+      </picture>
       <div>
         <div className="flex items-center gap-x-[0.38rem]">
           <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
