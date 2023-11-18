@@ -60,3 +60,10 @@
     @apply placeholder:input-text;
   }
 }
+
+@layer components {
+  .poster {
+    --aspect-ratio: 1.5;
+    @apply pt-[calc(100%*var(--aspect-ratio))];
+  }
+}

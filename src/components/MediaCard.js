@@ -1,4 +1,6 @@
+import MediaPoster from "./MediaPoster";
 import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
+const { NEXT_PUBLIC_BASE_IMG_URL } = process.env;
 
 export function MediaCardLoadingSkeleton() {
   return (
@@ -33,28 +35,7 @@ export default function MediaCard({ data }) {
 
   return (
     <article>
-      <picture className="relative group w-full h-[12rem]">
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/original${posterPath}`}
-          media="(min-width: 1800px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w780${posterPath}`}
-          media="(min-width: 1260px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w500${posterPath}`}
-          media="(min-width: 768px)"
-        />
-        <source
-          srcSet={`https://www.themoviedb.org/t/p/w342${posterPath}`}
-          media="(min-width: 425px)"
-        />
-        <img
-          className="w-full h-full rounded-2xl object-cover object-center"
-          src={`https://www.themoviedb.org/t/p/w154${posterPath}`}
-        />
-      </picture>
+      <MediaPoster className="mb-2" path={posterPath} />
       <div>
         <div className="flex items-center gap-x-[0.38rem]">
           <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
