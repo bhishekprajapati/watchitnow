@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import MediaCard, { MediaCardLoadingSkeleton } from "./MediaCard";
+import Link from "next/link";
 
 function Grid({ children }) {
   return (
@@ -43,7 +44,9 @@ async function MediaGrid({ dataProvider, fallback = <></> }) {
   const mediaList = dataList.map((data) => {
     return (
       <li key={data.id}>
-        <MediaCard data={data} />
+        <Link href={`/app/${data.type}/${data.id}`}>
+          <MediaCard data={data} />
+        </Link>
       </li>
     );
   });

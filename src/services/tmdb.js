@@ -65,3 +65,33 @@ export async function search({ slug, type }) {
     return { error: "Something went wrong!" };
   }
 }
+
+export async function findMovie(id) {
+  try {
+    const url = `${config.baseUrl}/3/movie/${id}?api_key=${config.key}`;
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      return { status: res.status, error: res.statusText };
+    }
+
+    return { status: 200, data: await res.json() };
+  } catch (err) {
+    return { status: 500, error: "Something went wrong!" };
+  }
+}
+
+export async function findTvSeries(id) {
+  try {
+    const url = `${config.baseUrl}/3/tv/${id}?api_key=${config.key}`;
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      return { status: res.status, error: res.statusText };
+    }
+
+    return { status: 200, data: await res.json() };
+  } catch (err) {
+    return { status: 500, error: "Something went wrong!" };
+  }
+}
