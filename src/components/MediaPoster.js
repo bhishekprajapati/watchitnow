@@ -35,7 +35,7 @@ export default function MediaPoster({ path, className = "" }) {
         <div className="absolute top-0 right-0 bottom-0 left-0  bg-dark-blue/75 "></div>
         <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-20 h-20 rounded-full shadow-2xl shadow-dark-blue bg-red flex items-center justify-center">
           <IconPlayerPlayFilled
-            className="rotate-45 group-hover:rotate-0 transition-transform duration-150 ease-in-out delay-200"
+            className="rotate-45 group-hover:rotate-0 transition-transform duration-150 ease-in-out delay-100"
             width={36}
             height={36}
           />
