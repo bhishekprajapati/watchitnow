@@ -101,7 +101,7 @@ function MovieBadges(props) {
       </Suspense>
       <Badge tooltip="Year">{props.releaseYear}</Badge>
       <Badge tooltip="Runtime">{props.runtime}</Badge>
-      <Badge tooltip="Status" className="bg-yellow text-black">
+      <Badge tooltip="Status" className="bg-yellow !text-black">
         {props.status}
       </Badge>
     </>
@@ -117,14 +117,33 @@ function Overview(props) {
 }
 
 function Genres(props) {
+  const GenreBadges = props.genres.map((genre) => {
+    return (
+      <Badge
+        className="bg-gradient-to-tl from-[rgb(16,37,60)] to-[rgb(38,38,38)]"
+        key={genre.id}
+      >
+        {genre.name}
+      </Badge>
+    );
+  });
+  return (
+    <div className="flex items-center gap-x-2">
+      <span className="text-heading-sm text-white text-[1.2rem]">Genres:</span>
+      {GenreBadges}
+    </div>
+  );
+}
+
+function OriginalLanguage(props) {
   return (
     <div>
       <span className="text-heading-sm text-white text-[1.2rem] mr-4">
-        Genres:
+        Original Language:
       </span>
-      <span className="text-heading-sm font-light text-[1.2rem] text-white/75">
-        {formatGenres(props.genres)}
-      </span>
+      <Badge className="bg-white/90 !text-black">
+        {props.originalLanguage}
+      </Badge>
     </div>
   );
 }
@@ -162,7 +181,11 @@ export default async function MediaHero({ type = "movie", mediaId }) {
               <Overview {...data} />
             </div>
 
-            <Genres {...data} />
+            <div className="mb-2">
+              <Genres {...data} />
+            </div>
+
+            <OriginalLanguage {...data} />
           </div>
         </div>
       </section>
