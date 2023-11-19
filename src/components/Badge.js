@@ -14,7 +14,7 @@ const PlainBadge = (props) => {
 
 export default function Badge({ children, tooltip, className }) {
   if (!tooltip) {
-    return <PlainBadge>{children}</PlainBadge>;
+    return <PlainBadge className={className || ""}>{children}</PlainBadge>;
   }
 
   const classes = classNames(
