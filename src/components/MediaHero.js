@@ -3,7 +3,9 @@ import MediaPoster from "@/components/MediaPoster";
 import Badge from "./Badge";
 import { findMovie, findTvSeries } from "@/services/tmdb";
 import { IconStarFilled } from "@tabler/icons-react";
-const { NEXT_PUBLIC_BASE_IMG_URL } = process.env;
+import IconImdb from "./Icons/IconImdb";
+import { Suspense } from "react";
+const { NEXT_PUBLIC_BASE_IMG_URL, OMDB_API_KEY } = process.env;
 
 function formatGenres(genres) {
   let formatted = "";
@@ -61,22 +63,54 @@ function Header(props) {
   );
 }
 
+async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function ImdbRating(props) {
+  try {
+    const res = await fetch(
+      `https://www.omdbapi.com/?i=${props.id}&apikey=${OMDB_API_KEY}`
+    );
+    const { imdbRating } = await res.json();
+
+    if (!res.ok) {
+      throw Error("Something went wrong!");
+    }
+
+    return (
+      <>
+        <IconImdb />
+        <span className="mr-8 text-heading-sm text-[1.2rem] font-semibold text-yellow">
+          {imdbRating}
+        </span>
+      </>
+    );
+  } catch (err) {
+    return <></>;
+  }
+}
+
 function MovieBadges(props) {
   return (
     <>
-      <span>
-        <IconStarFilled className="text-[#DBA506]" />
-        {}
-      </span>
+      <Suspense
+        fallback=<span className="w-20 h-7 mr-8 rounded-lg bg-semi-dark-blue animate-pulse"></span>
+      >
+        <ImdbRating id={props.imdbId} />
+      </Suspense>
       <Badge tooltip="Year">{props.releaseYear}</Badge>
       <Badge tooltip="Runtime">{props.runtime}</Badge>
+      <Badge tooltip="Status" className="bg-yellow text-black">
+        {props.status}
+      </Badge>
     </>
   );
 }
 
 function Overview(props) {
   return (
-    <p className="text-heading-sm text-[1.4rem] font-light text-white/75">
+    <p className="text-heading-sm text-[1.2rem] font-light text-white/75">
       {props.overview}
     </p>
   );
@@ -112,19 +146,21 @@ export default async function MediaHero({ type = "movie", mediaId }) {
       <section className="relative w-full md:h-[80vh]">
         <BackdropImage path={data.backdropPath} />
 
-        <div className="z-10 pt-12 absolute top-0 right-0 bottom-0 left-0 md:flex md:gap-x-[4%]">
+        <div className="z-10 pt-12 absolute top-0 right-0 bottom-0 left-0 md:flex md:gap-x-[3%]">
           <div className="md:flex-[2] text-center md:text-left ">
             <div className="w-full sm:w-[50%] md:w-full inline-block">
               <PosterImage path={data.posterPath} />
             </div>
           </div>
 
-          <div className="md:flex-[8] md:pr-[4%]">
+          <div className="md:flex-[8] md:pr-[3%]">
             <Header {...data} />
-            <div className="mb-2 flex gap-x-2">
+            <div className="mb-4 flex items-center gap-x-2">
               <MovieBadges {...data} />
             </div>
-            <Overview {...data} />
+            <div className="mb-4">
+              <Overview {...data} />
+            </div>
 
             <Genres {...data} />
           </div>
