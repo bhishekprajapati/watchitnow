@@ -1,3 +1,5 @@
+import { formatResults, formatMovieData, formatTvData } from "./formatters";
+
 const config = {
   key: process.env.TMDB_API_KEY,
   token: process.env.TMDB_READ_ACCESS_TOKEN,
@@ -6,23 +8,6 @@ const config = {
 
 function transformResponse(data, meta) {
   return { data, meta };
-}
-
-function formatResults(results) {
-  return results.map((data) => ({
-    id: data.id,
-    title: data["original_title"] || data["title"] || data["name"] || "",
-    year: (data["release_date"] || data["first_air_date"] || "").substring(
-      0,
-      4
-    ),
-    overview: data.overview,
-    backdropPath: data["backdrop_path"],
-    posterPath: data["poster_path"],
-    adult: data.adult,
-    type: data["media_type"],
-    lang: data["original_language"],
-  }));
 }
 
 export async function getTrending(params = { by: "day" }) {
@@ -75,7 +60,7 @@ export async function findMovie(id) {
       return { status: res.status, error: res.statusText };
     }
 
-    return { status: 200, data: await res.json() };
+    return { status: 200, data: formatMovieData(await res.json()) };
   } catch (err) {
     return { status: 500, error: "Something went wrong!" };
   }
@@ -90,7 +75,7 @@ export async function findTvSeries(id) {
       return { status: res.status, error: res.statusText };
     }
 
-    return { status: 200, data: await res.json() };
+    return { status: 200, data: formatTvData(await res.json()) };
   } catch (err) {
     return { status: 500, error: "Something went wrong!" };
   }
