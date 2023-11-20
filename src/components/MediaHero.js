@@ -58,7 +58,6 @@ function Header(props) {
       <h1 className="relative text-heading-lg font-semibold mb-1">
         {props.title}
       </h1>
-      <h2 className="text-heading-sm font-medium mb-8">{props.tagline}</h2>
     </>
   );
 }
@@ -173,11 +172,16 @@ export default async function MediaHero({ type = "movie", mediaId }) {
           </div>
 
           <div className="md:flex-[8] md:pr-[3%]">
-            <Header {...data} />
-            <div className="mb-4 flex items-center gap-x-2">
+            <div className="mb-2">
+              <Header {...data} />
+            </div>
+            <div className="mb-8 flex items-center gap-x-2">
               <MovieBadges {...data} />
             </div>
-            <div className="mb-4">
+            <div className="mb-6">
+              <h2 className="text-heading-sm font-medium mb-2">
+                {data.tagline}
+              </h2>
               <Overview {...data} />
             </div>
 
