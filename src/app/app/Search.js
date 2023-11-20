@@ -150,7 +150,7 @@ function SearchForm({ placeholder }) {
         <span className="-translate-x-[100%] transition-transform border border-greyish-blue/25 block w-full"></span>
       </form>
 
-      <Modal show={true}>
+      <Modal show={showSearchResultModal}>
         {searchResults?.length ? (
           <SearchResults data={searchResults} />
         ) : (

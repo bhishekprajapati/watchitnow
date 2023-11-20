@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 export default function Modal({ children, show }) {
   const modalClasses = classNames(
-    "fixed z-50 left-[25%] right-[25%] top-[15%] translate-y-[30%] overflow-hidden",
+    "fixed z-50 left-[10%] right-[10%] top-[25%] lg:left-[25%] lg:right-[25%] lg:top-[15%] translate-y-[30%] overflow-hidden",
     "h-[50vh] lg:h-[60vh] rounded-xl",
     "bg-gradient-to-tl from-semi-dark-blue/75 to-dark-blue backdrop-blur-3xl",
     "shadow-2xl shadow-black border-2 border-dark-blue",
