@@ -48,7 +48,12 @@ function SearchResults({ data }) {
   });
   return (
     <>
-      <ul className="h-full overflow-y-scroll [&>:not(:last-child)]:border-b [&>:not(:last-child)]:border-dark-blue">
+      <ul
+        className="
+          h-full overflow-y-scroll  scrollbar-track-dark-blue scrollbar-thumb-red/75 scrollbar-thin
+          [&>:not(:last-child)]:border-b [&>:not(:last-child)]:border-dark-blue
+        "
+      >
         {list}
       </ul>
     </>
@@ -145,7 +150,7 @@ function SearchForm({ placeholder }) {
         <span className="-translate-x-[100%] transition-transform border border-greyish-blue/25 block w-full"></span>
       </form>
 
-      <Modal show={showSearchResultModal}>
+      <Modal show={true}>
         {searchResults?.length ? (
           <SearchResults data={searchResults} />
         ) : (
