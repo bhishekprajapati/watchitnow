@@ -142,12 +142,12 @@ function SearchForm({ placeholder }) {
         <input
           id="query"
           name="query"
-          className="mb-[.8rem] field-input block w-full [&:focus+span]:translate-x-[0]"
+          className="px-6 py-2 bg-dark-blue rounded-3xl field-input block w-full [&:focus+span]:translate-x-[0]"
           type="text"
           placeholder={placeholder}
         />
 
-        <span className="-translate-x-[100%] transition-transform border border-greyish-blue/25 block w-full"></span>
+        {/* <span className="-translate-x-[100%] transition-transform border border-greyish-blue/25 block w-full"></span> */}
       </form>
 
       <Modal show={showSearchResultModal}>
@@ -164,11 +164,13 @@ function SearchForm({ placeholder }) {
 export default function Search() {
   const path = usePathname();
   return (
-    <div className="flex gap-x-6">
-      <label htmlFor="search" className="cursor-pointer mt-[0.5rem]">
-        <IconSearch className="text-white" stroke={2.5} />
-      </label>
-      <SearchForm key={path} placeholder="Search for movies and TV series" />
+    <div className="p-4 px-8 bg-gradient-to-tr from-semi-dark-blue/25 to-semi-dark-blue/50 shadow-2xl rounded-full">
+      <div className="flex items-center gap-x-6">
+        <label htmlFor="search" className="cursor-pointer mt-[0.5rem]">
+          <IconSearch className="text-white" stroke={2.5} />
+        </label>
+        <SearchForm key={path} placeholder="Search for movies and TV series" />
+      </div>
     </div>
   );
 }
