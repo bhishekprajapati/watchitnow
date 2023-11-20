@@ -30,9 +30,11 @@ export async function getTrending(params = { by: "day" }) {
   }
 }
 
-export async function search({ slug, type }) {
+export async function search({ slug }) {
   try {
-    const url = `${config.baseUrl}/3/search/${type}?api_key=${config.key}&query=${slug}`;
+    const url = `${config.baseUrl}/3/search/multi?api_key=${
+      config.key
+    }&query=${encodeURIComponent(slug)}`;
     const res = await fetch(url);
 
     if (!res.ok) {
