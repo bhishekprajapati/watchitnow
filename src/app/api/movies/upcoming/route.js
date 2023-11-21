@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Movies } from "@/services/tmdb";
+import ApiErrors from "../../ApiErrors";
 
 export async function GET() {
   try {
@@ -19,8 +20,6 @@ export async function GET() {
     // log the error
     console.log(err);
 
-    return NextResponse.json({
-      error: "Internal Server Error",
-    });
+    return ApiErrors.InternalServerError();
   }
 }
