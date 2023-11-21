@@ -1,3 +1,7 @@
+export function getSearchParams(nextReq) {
+  return Object.fromEntries(nextReq.nextUrl.searchParams.entries());
+}
+
 export async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

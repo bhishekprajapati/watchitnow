@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { Movies } from "@/services/tmdb";
+import { moviedb } from "@/services/moviedb";
 import ApiErrors from "../../ApiErrors";
+import { getSearchParams } from "@/utils";
 
-export async function GET() {
+export async function GET(req) {
   try {
-    const data = await Movies.getGenres();
-    return NextResponse.json({ data, error: null });
+    const { genres } = await moviedb.genreMovieList(getSearchParams(req));
+    return NextResponse.json({ data: genres, error: null });
   } catch (err) {
     // log the error
     console.log(err);

@@ -4,6 +4,7 @@ const config = {
   key: process.env.TMDB_API_KEY,
   token: process.env.TMDB_READ_ACCESS_TOKEN,
   baseUrl: "https://api.themoviedb.org",
+  version: 3,
 };
 
 function transformResponse(data, meta) {
@@ -91,40 +92,6 @@ async function execFetch(url, ...args) {
   const data = await res.json();
   return data;
 }
-
-export const Configurations = {
-  async getCountries() {
-    return await execFetch(
-      `${config.baseUrl}/3/configuration/countries?api_key=${config.key}&language=en-US`
-    );
-  },
-};
-
-export const Movies = {
-  async getGenres() {
-    return await execFetch(
-      `${config.baseUrl}/3/genre/movie/list?api_key=${config.key}`
-    );
-  },
-
-  async getNowPlaying() {
-    return await execFetch(
-      `${config.baseUrl}/3/movie/now_playing?api_key=${config.key}`
-    );
-  },
-
-  async getUpcoming() {
-    return await execFetch(
-      `${config.baseUrl}/3/movie/upcoming?api_key=${config.key}`
-    );
-  },
-
-  async getTopRated() {
-    return await execFetch(
-      `${config.baseUrl}/3/movie/top_rated?api_key=${config.key}`
-    );
-  },
-};
 
 export const TvSeries = {
   async getGenres() {
