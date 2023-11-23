@@ -1,10 +1,10 @@
-import { notFound } from "next/navigation";
-import MediaPoster from "@/components/MediaPoster";
-import Badge from "./Badge";
-import { findMovie, findTvSeries } from "@/services/tmdb";
-import { IconStarFilled } from "@tabler/icons-react";
-import IconImdb from "./Icons/IconImdb";
 import { Suspense } from "react";
+import { notFound } from "next/navigation";
+import Chip from "./primitives/Chip";
+import Tooltip from "./primitives/Tooltip";
+import MediaPoster from "@/components/MediaPoster";
+import IconImdb from "./Icons/IconImdb";
+import { findMovie, findTvSeries } from "@/services/tmdb";
 const { NEXT_PUBLIC_BASE_IMG_URL, OMDB_API_KEY } = process.env;
 
 function formatGenres(genres) {
@@ -98,11 +98,15 @@ function MovieBadges(props) {
       >
         <ImdbRating id={props.imdbId} />
       </Suspense>
-      <Badge tooltip="Year">{props.releaseYear}</Badge>
-      <Badge tooltip="Runtime">{props.runtime}</Badge>
-      <Badge tooltip="Status" className="bg-yellow !text-black">
-        {props.status}
-      </Badge>
+      <Tooltip text="Year">
+        <Chip>{props.releaseYear}</Chip>
+      </Tooltip>
+      <Tooltip text="Runtime">
+        <Chip>{props.runtime}</Chip>
+      </Tooltip>
+      <Tooltip text="Status">
+        <Chip className="bg-yellow">{props.status}</Chip>
+      </Tooltip>
     </>
   );
 }
@@ -118,12 +122,12 @@ function Overview(props) {
 function Genres(props) {
   const GenreBadges = props.genres.map((genre) => {
     return (
-      <Badge
+      <Chip
         className="bg-gradient-to-tl from-[rgb(16,37,60)] to-[rgb(38,38,38)]"
         key={genre.id}
       >
         {genre.name}
-      </Badge>
+      </Chip>
     );
   });
   return (
@@ -140,9 +144,7 @@ function OriginalLanguage(props) {
       <span className="text-heading-sm text-white text-[1.2rem] mr-4">
         Original Language:
       </span>
-      <Badge className="bg-white/90 !text-black">
-        {props.originalLanguage}
-      </Badge>
+      <Chip className="bg-white/90 text-black">{props.originalLanguage}</Chip>
     </div>
   );
 }
