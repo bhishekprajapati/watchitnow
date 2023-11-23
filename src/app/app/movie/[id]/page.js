@@ -2,8 +2,10 @@ import { AspectRatio } from "@/components/primitives";
 import Dropdown from "@/components/Dropdown";
 import MediaHero from "@/components/MediaHero";
 import { moviedb } from "@/services/moviedb";
-import { IconFilter } from "@tabler/icons-react";
+
+import classNames from "classnames";
 import { Button } from "@nextui-org/button";
+import { IconFilter } from "@tabler/icons-react";
 
 const MediaVideoCard = ({ youtubeId }) => {
   return (
@@ -23,6 +25,13 @@ const MediaVideoCard = ({ youtubeId }) => {
 };
 
 const MediaRelatedVideos = async ({ movieId, filterPredicate }) => {
+  const gridCss = classNames(
+    "md:grid",
+    "md:grid-cols-2 md:gap-6",
+    "lg:grid-cols-3",
+    "xl:grid-cols-4"
+  );
+
   const { results } = await moviedb.movieVideos({
     id: movieId,
     language: "en-US",
@@ -65,9 +74,7 @@ const MediaRelatedVideos = async ({ movieId, filterPredicate }) => {
             </Button>
           </Dropdown>
         </header>
-        <ul className="md:flex md:[&>li]:w-[32%] md:gap-x-[2%] md:[&>:not(:last-child)]:mb-8 md:flex-wrap lg:[&>li]:w-[23.5%] lg:gap-x-[2%]">
-          {videoCardList}
-        </ul>
+        <ul className={gridCss}>{videoCardList}</ul>
       </section>
     </>
   );
