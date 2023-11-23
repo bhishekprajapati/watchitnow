@@ -104,8 +104,8 @@ function MovieBadges(props) {
       <Tooltip text="Runtime">
         <Chip>{props.runtime}</Chip>
       </Tooltip>
-      <Tooltip text="Status">
-        <Chip className="bg-yellow">{props.status}</Chip>
+      <Tooltip text="Status" className="bg-yellow text-black">
+        <Chip>{props.status}</Chip>
       </Tooltip>
     </>
   );
