@@ -1,4 +1,4 @@
-import AspectRatio from "@/components/primitives/AspectRatio";
+import { AspectRatio } from "@/components/primitives";
 
 import PropTypes from "prop-types";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";

@@ -1,6 +1,6 @@
+import { AspectRatio } from "@/components/primitives";
 import Dropdown from "@/components/Dropdown";
 import MediaHero from "@/components/MediaHero";
-import AspectRatio from "@/components/primitives/AspectRatio";
 import { moviedb } from "@/services/moviedb";
 import { IconFilter } from "@tabler/icons-react";
 import { Button } from "@nextui-org/button";

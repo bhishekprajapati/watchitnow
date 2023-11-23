@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import Chip from "./primitives/Chip";
-import Tooltip from "./primitives/Tooltip";
+import { Chip, Tooltip } from "@/components/primitives";
 import MediaPoster from "@/components/MediaPoster";
 import IconImdb from "./Icons/IconImdb";
 import { findMovie, findTvSeries } from "@/services/tmdb";
