@@ -1,12 +1,12 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { IconSearch } from "@tabler/icons-react";
-import { debounce } from "@/utils";
-import { useEffect, useRef, useState } from "react";
+import { CardGlass } from "@/components/primitives";
 import Modal from "@/components/Modal";
-import { IconMoodSadFilled } from "@tabler/icons-react";
-// const { NEXT_PUBLIC_BASE_IMG_URL } = process.env;
+import { debounce } from "@/utils";
+
+import { usePathname, useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { IconSearch, IconMoodSadFilled } from "@tabler/icons-react";
 
 async function fetchSearchResults(query, callback) {
   try {
@@ -142,7 +142,7 @@ function SearchForm({ placeholder }) {
         <input
           id="query"
           name="query"
-          className="px-6 py-2 bg-dark-blue rounded-3xl field-input block w-full [&:focus+span]:translate-x-[0]"
+          className="px-6 py-2 bg-semi-dark-blue/40 rounded-3xl field-input block w-full [&:focus+span]:translate-x-[0]"
           type="text"
           placeholder={placeholder}
         />
@@ -164,13 +164,20 @@ function SearchForm({ placeholder }) {
 export default function Search() {
   const path = usePathname();
   return (
-    <div className="p-4 px-8 bg-gradient-to-tr from-semi-dark-blue/25 to-semi-dark-blue/50 shadow-2xl rounded-full">
-      <div className="flex items-center gap-x-6">
-        <label htmlFor="search" className="cursor-pointer mt-[0.5rem]">
-          <IconSearch className="text-white" stroke={2.5} />
-        </label>
-        <SearchForm key={path} placeholder="Search for movies and TV series" />
+    <CardGlass>
+      <div className="py-4 md:py-8">
+        <div className="lg:px-9">
+          <div className="flex items-center gap-x-6">
+            <label htmlFor="search" className="cursor-pointer mt-[0.5rem]">
+              <IconSearch className="text-white" stroke={2.5} />
+            </label>
+            <SearchForm
+              key={path}
+              placeholder="Search for movies and TV series"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </CardGlass>
   );
 }
