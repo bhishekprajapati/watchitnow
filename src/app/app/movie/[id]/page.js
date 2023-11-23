@@ -1,22 +1,24 @@
 import Dropdown from "@/components/Dropdown";
 import MediaHero from "@/components/MediaHero";
+import AspectRatio from "@/components/primitives/AspectRatio";
 import { moviedb } from "@/services/moviedb";
 import { IconFilter } from "@tabler/icons-react";
 import { Button } from "@nextui-org/button";
 
 const MediaVideoCard = ({ youtubeId }) => {
   return (
-    <div className="transition-transform duration-1000 hover:scale-[1.02]">
-      <div className="relative w-full pt-[56.25%] overflow-hidden rounded-2xl shadow-2xl shadow-black">
-        <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-    </div>
+    <AspectRatio
+      value={16 / 9}
+      className="overflow-hidden rounded-lg shadow-xl shadow-black/25"
+    >
+      <iframe
+        className="absolute top-0 left-0 w-full h-full"
+        src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </AspectRatio>
   );
 };
 
