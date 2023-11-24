@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }) {
         </header>
         <main className="flex-1">
           <div className="px-5 md:px-0 lg:w-full lg:h-full lg:overflow-y-auto scrollbar-track-dark-blue scrollbar-thumb-red scrollbar-thin">
-            <div className="lg:sticky lg:top-0 lg:z-50">
+            <div className="relative z-50 lg:sticky lg:top-0">
               <Search />
             </div>
             <div className="lg:px-9">{children}</div>
