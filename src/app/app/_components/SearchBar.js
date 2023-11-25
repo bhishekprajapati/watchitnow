@@ -4,9 +4,10 @@ import SearchForm from "./SearchForm";
 import SearchResults from "./SearchResults";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
+import useMount from "@/hooks/useMount";
 
 async function search({ query }) {
   const res = await fetch(`/api/search/multi?q=${query}&limit=10`);
@@ -34,7 +35,9 @@ function SearchResultsLayout({ children, expand = false }) {
   );
 }
 
-export default function SearchBar({ className }) {
+function SearchBar({ className }) {
+  const router = useRouter();
+
   const [results, setResults] = useState(null);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -63,6 +66,13 @@ export default function SearchBar({ className }) {
     }
   }, [query, results]);
 
+  function handleSubmit(e) {
+    console.log("Submitting");
+
+    e.preventDefault();
+    router.push(`/app/search?query=${query}`);
+  }
+
   return (
     <div className={twMerge("relative", className)}>
       <div className="relative z-50 lg:px-8 lg:py-6 bg-dark-blue/95 backdrop-blur-3xl shadow-2xl shadow-dark-blue/80">
@@ -70,6 +80,7 @@ export default function SearchBar({ className }) {
           isLoading={isLoading}
           key={usePathname()}
           onInput={(e) => setQuery(e.target.value)}
+          onSubmit={handleSubmit}
           debounce
           delay={150}
         />
@@ -79,4 +90,9 @@ export default function SearchBar({ className }) {
       </SearchResultsLayout>
     </div>
   );
+}
+
+export default function MediaSearchBar() {
+  const path = usePathname();
+  return <SearchBar key={path} />;
 }

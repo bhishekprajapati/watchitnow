@@ -13,6 +13,7 @@ SearchForm.propTypes = {
 
 export default function SearchForm({
   onInput,
+  onSubmit,
   isLoading = false,
   debounce,
   delay = 250,
@@ -31,6 +32,7 @@ export default function SearchForm({
 
   return (
     <form
+      onSubmit={onSubmit}
       id="search-form"
       className="px-5 py-3 flex items-center gap-x-4 bg-semi-dark-blue/50 rounded-xl"
     >
