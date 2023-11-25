@@ -1,6 +1,6 @@
 import AspectRatio from "./AspectRatio";
 import Chip from "./Chip";
-import CardGlass from "./CardGlass";
+import Input from "./Input";
 import Tooltip from "./Tooltip";
 
-export { AspectRatio, Chip, CardGlass, Tooltip };
+export { AspectRatio, Chip, Input, Tooltip };
