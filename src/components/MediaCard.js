@@ -36,7 +36,7 @@ export default function MediaCard({ data }) {
   return (
     <article>
       <MediaPoster className="mb-2" path={posterPath} />
-      <div>
+      <div className="hidden lg:block">
         <div className="flex items-center gap-x-[0.38rem]">
           <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
             {year}

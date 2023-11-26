@@ -37,7 +37,7 @@ const Poster = ({ path, className }) => {
 
 const PosterOverlay = () => {
   return (
-    <div className="pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+    <div className="hidden lg:block pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100">
       <div className="absolute top-0 right-0 bottom-0 left-0 bg-dark-blue/75"></div>
       <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-16 h-16 rounded-full shadow-2xl shadow-dark-blue bg-yellow flex items-center justify-center">
         <IconPlayerPlayFilled

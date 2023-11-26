@@ -1,30 +1,17 @@
+import { Grid } from "./primitives";
 import MediaCard, { MediaCardLoadingSkeleton } from "./MediaCard";
 
 import Link from "next/link";
 import { Suspense } from "react";
-import classNames from "classnames";
-
-function Grid({ children }) {
-  const gridCss = classNames(
-    "grid grid-cols-2 gap-4",
-    "sm:grid-cols-3 sm:gap-6",
-    "md:grid-cols-4",
-    "lg:grid-cols-5",
-    "xl:grid-cols-6",
-    "2xl:grid-cols-7"
-  );
-
-  return <ul className={gridCss}>{children}</ul>;
-}
 
 export function MediaGridLoadingSkeleton() {
   const cards = new Array(12).fill(
-    <li>
+    <Grid.Item>
       <MediaCardLoadingSkeleton />
-    </li>
+    </Grid.Item>
   );
 
-  return <Grid>{cards}</Grid>;
+  return <Grid.Container>{cards}</Grid.Container>;
 }
 
 async function MediaGrid({ dataProvider, fallback = <></> }) {
@@ -42,15 +29,15 @@ async function MediaGrid({ dataProvider, fallback = <></> }) {
 
   const mediaList = dataList.map((data) => {
     return (
-      <li key={data.id}>
+      <Grid.Item key={data.id}>
         <Link href={`/app/${data.type}/${data.id}`}>
           <MediaCard data={data} />
         </Link>
-      </li>
+      </Grid.Item>
     );
   });
 
-  return <Grid>{mediaList}</Grid>;
+  return <Grid.Container>{mediaList}</Grid.Container>;
 }
 
 export default async function MediaGridWithLoadingState(props) {
