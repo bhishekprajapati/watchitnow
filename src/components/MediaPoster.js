@@ -28,6 +28,7 @@ const Poster = ({ path, className }) => {
         <img
           className="w-full h-full object-cover object-center"
           src={`${NEXT_PUBLIC_BASE_IMG_URL}/w300${path}`}
+          loading="lazy"
         />
       </picture>
     </>
