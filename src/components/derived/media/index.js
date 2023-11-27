@@ -1,5 +1,4 @@
-import { Grid } from "@/components/primitives";
-const { Container: GridContainer, Item: GridItem } = Grid;
+import { GridContainer, GridItem } from "@/components/Grid";
 
 import Info from "./Info";
 import Loading from "./Loading";

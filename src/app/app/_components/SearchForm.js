@@ -1,4 +1,4 @@
-import { Input } from "@/components/primitives";
+import Input from "@/components/Input";
 
 import React from "react";
 import PropTypes from "prop-types";

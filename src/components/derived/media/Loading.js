@@ -1,4 +1,4 @@
-import { AspectRatio } from "@/components/primitives";
+import AspectRatio from "@/components/AspectRatio";
 import { IconPhoto } from "@tabler/icons-react";
 
 export default function Loading({}) {

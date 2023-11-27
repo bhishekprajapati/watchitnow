@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
 
-export function Container({
+export function GridContainer({
   as: Element = "ul",
   className,
   children,
@@ -24,15 +24,15 @@ export function Container({
   );
 }
 
-export function Item({ as: Element = "li", className, children, ...props }) {
+export function GridItem({
+  as: Element = "li",
+  className,
+  children,
+  ...props
+}) {
   return (
     <Element className={className} {...props}>
       {children}
     </Element>
   );
 }
-
-export default {
-  Container,
-  Item,
-};
