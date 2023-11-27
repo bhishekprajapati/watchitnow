@@ -1,4 +1,5 @@
-import { GridContainer, GridItem } from "@/components/Grid";
+import Grid from "@/components/Grid";
+import GridItem from "@/components/GridItem";
 
 import Info from "./Info";
 import Loading from "./Loading";
@@ -29,7 +30,7 @@ function Card({
 
 function List({ dataList }) {
   return (
-    <GridContainer>
+    <Grid>
       {dataList.map((data) => {
         const props = {
           data,
@@ -42,7 +43,7 @@ function List({ dataList }) {
           </GridItem>
         );
       })}
-    </GridContainer>
+    </Grid>
   );
 }
 

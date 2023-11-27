@@ -1,4 +1,5 @@
-import { GridContainer, GridItem } from "./Grid";
+import Grid from "./Grid";
+import GridItem from "./GridItem";
 import MediaCard, { MediaCardLoadingSkeleton } from "./MediaCard";
 
 import Link from "next/link";
@@ -11,7 +12,7 @@ export function MediaGridLoadingSkeleton() {
     </GridItem>
   );
 
-  return <GridContainer>{cards}</GridContainer>;
+  return <Grid>{cards}</Grid>;
 }
 
 async function MediaGrid({ dataProvider, fallback = <></> }) {
@@ -37,7 +38,7 @@ async function MediaGrid({ dataProvider, fallback = <></> }) {
     );
   });
 
-  return <GridContainer>{mediaList}</GridContainer>;
+  return <Grid>{mediaList}</Grid>;
 }
 
 export default async function MediaGridWithLoadingState(props) {

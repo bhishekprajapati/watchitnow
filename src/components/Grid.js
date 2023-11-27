@@ -1,7 +1,9 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
 
-export function GridContainer({
+export default function Grid({
   as: Element = "ul",
   className,
   children,
@@ -19,19 +21,6 @@ export function GridContainer({
   );
   return (
     <Element className={twMerge(classes, className)} {...props}>
-      {children}
-    </Element>
-  );
-}
-
-export function GridItem({
-  as: Element = "li",
-  className,
-  children,
-  ...props
-}) {
-  return (
-    <Element className={className} {...props}>
       {children}
     </Element>
   );
