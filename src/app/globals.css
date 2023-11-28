@@ -60,3 +60,31 @@
     @apply placeholder:input-text placeholder:text-white/25;
   }
 }
+
+@layer components {
+  .overflow-indicators {
+    @apply relative;
+
+    &::before {
+      content: "";
+      @apply pointer-events-none opacity-0 transition-opacity;
+      @apply inline-block w-16 absolute top-0 bottom-0 left-0 z-50;
+      @apply bg-gradient-to-r from-dark-blue;
+    }
+
+    &::after {
+      content: "";
+      @apply pointer-events-none opacity-0 transition-opacity;
+      @apply inline-block w-16 absolute top-0 bottom-0 right-0 z-50;
+      @apply bg-gradient-to-l from-dark-blue;
+    }
+  }
+
+  .show-left::before {
+    @apply !opacity-100;
+  }
+
+  .show-right::after {
+    @apply !opacity-100;
+  }
+}
