@@ -3,31 +3,31 @@ import AspectRatio from "@/components/AspectRatio";
 import PropTypes from "prop-types";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
 
-const { NEXT_PUBLIC_BASE_IMG_URL } = process.env;
+const POSTER_BASE_PATH = "https://www.themoviedb.org/t/p";
 
 const Poster = ({ path, className }) => {
   return (
     <>
       <picture className={className}>
         <source
-          srcSet={`${NEXT_PUBLIC_BASE_IMG_URL}/original${path}`}
+          srcSet={`${POSTER_BASE_PATH}/original${path}`}
           media="(min-width: 1800px)"
         />
         <source
-          srcSet={`${NEXT_PUBLIC_BASE_IMG_URL}/w780${path}`}
+          srcSet={`${POSTER_BASE_PATH}/w780${path}`}
           media="(min-width: 1260px)"
         />
         <source
-          srcSet={`${NEXT_PUBLIC_BASE_IMG_URL}/w500${path}`}
+          srcSet={`${POSTER_BASE_PATH}/w500${path}`}
           media="(min-width: 768px)"
         />
         <source
-          srcSet={`${NEXT_PUBLIC_BASE_IMG_URL}/w342${path}`}
+          srcSet={`${POSTER_BASE_PATH}/w342${path}`}
           media="(min-width: 425px)"
         />
         <img
           className="w-full h-full object-cover object-center"
-          src={`${NEXT_PUBLIC_BASE_IMG_URL}/w300${path}`}
+          src={`${POSTER_BASE_PATH}/w300${path}`}
           loading="lazy"
         />
       </picture>
