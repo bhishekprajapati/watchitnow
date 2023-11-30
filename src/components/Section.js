@@ -1,12 +1,44 @@
-export default {
-  MediaDisplay({ title = "Media Section", children, ...props }) {
-    return (
-      <section className="mb-6 md:mb-8 lg:mb-10" {...props}>
-        <header className="text-heading-sm md:text-heading-md lg:text-heading-lg !font-semibold mb-4 md:mb-6 lg:mb-8">
-          <h2>{title}</h2>
-        </header>
-        <div>{children}</div>
-      </section>
-    );
-  },
+import { twMerge } from "tailwind-merge";
+
+function Section({ as: Element = "section", children, className, ...props }) {
+  return (
+    <Element className={twMerge("mb-6 md:mb-8 lg:mb-10", className)} {...props}>
+      {children}
+    </Element>
+  );
+}
+
+Section.Header = ({
+  as: Element = "header",
+  children,
+  className,
+  ...props
+}) => {
+  const classes = twMerge(
+    "text-heading-sm md:text-heading-md lg:text-heading-lg !font-semibold mb-4 md:mb-6 lg:mb-8",
+    className
+  );
+  return (
+    <Element className={classes} {...props}>
+      {children}
+    </Element>
+  );
 };
+
+Section.Title = ({ as: Element = "h2", children, className, ...props }) => {
+  return (
+    <Element className={className} {...props}>
+      {children}
+    </Element>
+  );
+};
+
+Section.Content = ({ as: Element = "div", children, className, ...props }) => {
+  return (
+    <Element className={className} {...props}>
+      {children}
+    </Element>
+  );
+};
+
+export default Section;
