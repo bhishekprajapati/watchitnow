@@ -2,9 +2,9 @@
 
 import Grid from "./Grid";
 import GridItem from "./GridItem";
-import Info from "@/components/media/Info";
-import Poster from "@/components/media/Poster";
-import Title from "@/components/media/Title";
+import Info from "@/components/media-card/Info";
+import Poster from "@/components/media-card/Poster";
+import Title from "@/components/media-card/Title";
 import withOverflowIndicator from "@/hoc/withOverflowIndicator";
 
 import Link from "next/link";
