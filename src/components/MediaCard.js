@@ -91,7 +91,7 @@ MediaCard.Type = ({ children, className, type }) => {
         {isMovie ? (
           <IconMovie className="w-[0.625rem] h-[0.625rem] lg:w-[0.75rem] lg:h-[0.75rem]" />
         ) : (
-          <IconDeviceTv />
+          <IconDeviceTv className="w-[0.625rem] h-[0.625rem] lg:w-[0.75rem] lg:h-[0.75rem]" />
         )}
       </span>
       <span className="text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light">
