@@ -106,3 +106,36 @@
     animation: thumb-up-animation cubic-bezier(0.005, 0.575, 0.415, 1) 750ms;
   }
 }
+
+@layer components {
+  @keyframes shine-animation {
+    to {
+      background-position-x: -200%;
+    }
+  }
+
+  .animate-shine {
+    background-color: theme(colors.semi-dark-blue);
+    background: linear-gradient(
+      110deg,
+      theme(colors.semi-dark-blue) 8%,
+      theme(colors.dark-blue / 50%) 18%,
+      theme(colors.semi-dark-blue) 33%
+    );
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1s shine-animation linear infinite;
+  }
+}
+
+@layer components {
+  @keyframes breathe-animation {
+    to {
+      transform: scale(2);
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe-animation ease 20s infinite alternate;
+  }
+}
