@@ -127,31 +127,4 @@ MediaCard.Title = ({ as: Element = "h3", children, className, ...props }) => {
   );
 };
 
-MediaCard.Period = () => {
-  return (
-    <span className="w-[0.125rem] h-[0.125rem] bg-white bg-opacity-75 rounded-full"></span>
-  );
-};
-
-MediaCard.Splash = ({ className, ...props }) => {
-  return (
-    <div className="bg-semi-dark-blue/75 shadow-md shadow-semi-dark-blue rounded-xl">
-      <div className="flex items-center justify-center">
-        <IconPhoto
-          className="w-full h-full p-5 lg:p-8 text-dark-blue animate-pulse"
-          stroke={2}
-        />
-      </div>
-      <div className="hidden lg:block p-4">
-        <div className="mb-2 flex gap-x-2 rounded-md animate-pulse overflow-hidden">
-          <span className="h-4 bg-dark-blue flex-1"></span>
-          <span className="h-4 bg-dark-blue flex-1"></span>
-          <span className="h-4 bg-dark-blue flex-1"></span>
-        </div>
-        <div className="h-4 bg-dark-blue rounded-md animate-pulse"></div>
-      </div>
-    </div>
-  );
-};
-
 export default MediaCard;
