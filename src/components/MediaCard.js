@@ -1,5 +1,4 @@
 import {
-  IconPhoto,
   IconMovie,
   IconDeviceTv,
   IconPlayerPlayFilled,
@@ -10,7 +9,7 @@ const POSTER_BASE_PATH = "https://www.themoviedb.org/t/p";
 
 function MediaCard({ as: Element = "article", children, className, ...props }) {
   return (
-    <Element className={className} {...props}>
+    <Element className={twMerge("select-none", className)} {...props}>
       {children}
     </Element>
   );
