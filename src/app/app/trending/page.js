@@ -8,6 +8,11 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
 
+export const metadata = {
+  title: "Trending movies and tv series | WatchItNow!",
+  description: "Today's trending movies and tv series on WatchItNow!",
+};
+
 async function getTrendingAllToday() {
   const res = await moviedb.trending({
     media_type: "all",
