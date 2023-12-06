@@ -30,31 +30,33 @@ MediaCard.Poster = ({ className, path, hoverOverlay = true, ...props }) => {
   );
 
   return (
-    <div className="relative h-full group">
-      <picture className={twMerge("h-full", className)} {...props}>
-        <source
-          srcSet={`${POSTER_BASE_PATH}/original${path}`}
-          media="(min-width: 1800px)"
-        />
-        <source
-          srcSet={`${POSTER_BASE_PATH}/w780${path}`}
-          media="(min-width: 1260px)"
-        />
-        <source
-          srcSet={`${POSTER_BASE_PATH}/w500${path}`}
-          media="(min-width: 768px)"
-        />
-        <source
-          srcSet={`${POSTER_BASE_PATH}/w342${path}`}
-          media="(min-width: 425px)"
-        />
-        <img
-          className="w-full h-full object-cover object-center"
-          src={`${POSTER_BASE_PATH}/w300${path}`}
-          loading="lazy"
-        />
-      </picture>
-      {hoverOverlay && HoverOverlay}
+    <div className="aspect-[22/33] overflow-hidden rounded-xl">
+      <div className="relative h-full group">
+        <picture className={twMerge("h-full", className)} {...props}>
+          <source
+            srcSet={`${POSTER_BASE_PATH}/original${path}`}
+            media="(min-width: 1800px)"
+          />
+          <source
+            srcSet={`${POSTER_BASE_PATH}/w780${path}`}
+            media="(min-width: 1260px)"
+          />
+          <source
+            srcSet={`${POSTER_BASE_PATH}/w500${path}`}
+            media="(min-width: 768px)"
+          />
+          <source
+            srcSet={`${POSTER_BASE_PATH}/w342${path}`}
+            media="(min-width: 425px)"
+          />
+          <img
+            className="w-full h-full object-cover object-center"
+            src={`${POSTER_BASE_PATH}/w300${path}`}
+            loading="lazy"
+          />
+        </picture>
+        {hoverOverlay && HoverOverlay}
+      </div>
     </div>
   );
 };
