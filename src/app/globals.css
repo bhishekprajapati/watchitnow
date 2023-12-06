@@ -60,3 +60,82 @@
     @apply placeholder:input-text placeholder:text-white/25;
   }
 }
+
+@layer components {
+  .overflow-indicators {
+    @apply relative;
+
+    &::before {
+      content: "";
+      @apply pointer-events-none opacity-0 transition-opacity;
+      @apply inline-block w-16 absolute top-0 bottom-0 left-0 z-50;
+      @apply bg-gradient-to-r from-dark-blue;
+    }
+
+    &::after {
+      content: "";
+      @apply pointer-events-none opacity-0 transition-opacity;
+      @apply inline-block w-16 absolute top-0 bottom-0 right-0 z-50;
+      @apply bg-gradient-to-l from-dark-blue;
+    }
+  }
+
+  .show-left::before {
+    @apply !opacity-100;
+  }
+
+  .show-right::after {
+    @apply !opacity-100;
+  }
+}
+
+@layer components {
+  @keyframes thumb-up-animation {
+    0% {
+      transform: rotate(22.5deg) scale(0.75);
+    }
+    50% {
+      transform: rotate(-45deg) scale(1.25);
+    }
+    100% {
+      transform: rotate(0) scale(1);
+    }
+  }
+
+  .thumbs-up {
+    animation: thumb-up-animation cubic-bezier(0.005, 0.575, 0.415, 1) 750ms;
+  }
+}
+
+@layer components {
+  @keyframes shine-animation {
+    to {
+      background-position-x: -200%;
+    }
+  }
+
+  .animate-shine {
+    background-color: theme(colors.semi-dark-blue);
+    background: linear-gradient(
+      110deg,
+      theme(colors.semi-dark-blue) 8%,
+      theme(colors.dark-blue / 50%) 18%,
+      theme(colors.semi-dark-blue) 33%
+    );
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1s shine-animation linear infinite;
+  }
+}
+
+@layer components {
+  @keyframes breathe-animation {
+    to {
+      transform: scale(2);
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe-animation ease 20s infinite alternate;
+  }
+}

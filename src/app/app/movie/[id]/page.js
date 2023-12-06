@@ -1,4 +1,4 @@
-import { AspectRatio } from "@/components/primitives";
+import AspectRatio from "@/components/AspectRatio";
 import Dropdown from "@/components/Dropdown";
 import MediaHero from "@/components/MediaHero";
 import { moviedb } from "@/services/moviedb";

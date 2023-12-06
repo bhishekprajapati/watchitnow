@@ -1,4 +1,4 @@
-import { AspectRatio } from "@/components/primitives";
+import AspectRatio from "@/components/AspectRatio";
 import { IconMoodCry } from "@tabler/icons-react";
 
 function SearchError() {
