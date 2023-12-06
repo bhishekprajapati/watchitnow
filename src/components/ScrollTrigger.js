@@ -1,12 +1,12 @@
 "use client";
 
-import useIntersection from "@/hooks/useIntersection";
-
 import { twMerge } from "tailwind-merge";
 import { Spinner } from "@nextui-org/react";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { useRef } from "react";
 
 ScrollTrigger.propTypes = {
   as: PropTypes.elementType,
@@ -27,7 +27,15 @@ export default function ScrollTrigger({
   ...props
 }) {
   const targetRef = useRef(null);
-  const isIntersecting = useIntersection(targetRef, callback, {});
+  const isIntersecting = useInView(targetRef, {
+    margin: "100%",
+  });
+
+  useEffect(() => {
+    if (isIntersecting) {
+      callback();
+    }
+  }, [isIntersecting]);
 
   return (
     <Element
