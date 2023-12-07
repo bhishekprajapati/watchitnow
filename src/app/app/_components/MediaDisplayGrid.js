@@ -55,9 +55,7 @@ function MediaDisplay({ heading, initialPage, SlotViewMoreButton }) {
         {SlotViewMoreButton}
       </Section.Header>
       <Section.Content>
-        <Grid key={pagination.pages.length}>
-          {renderGridItems(pagination.pages)}
-        </Grid>
+        <Grid>{renderGridItems(pagination.pages)}</Grid>
         <ScrollTrigger trigger={handleOnLoadMore} />
       </Section.Content>
     </Section>

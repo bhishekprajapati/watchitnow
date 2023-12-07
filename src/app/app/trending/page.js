@@ -5,8 +5,6 @@ import MediaDisplaySkeleton from "@/app/ui/skeleton/MediaDisplaySkeleton";
 import ErrorBoundary from "@/components/errors/ErrorBoundary";
 
 import { Suspense } from "react";
-import Link from "next/link";
-import { Button } from "@nextui-org/react";
 import ErrorFetch from "@/components/states/ErrorFetch";
 
 export const metadata = {
