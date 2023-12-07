@@ -12,18 +12,19 @@ export const metadata = {
   description: "Today's trending movies and tv series on WatchItNow!",
 };
 
+async function Trending() {
+  const page = await getTrendingMedia();
+  return <MediaDisplayGrid heading="Trending Today" initialPage={page} />;
+}
+
 export default async function page({}) {
   return (
     <>
-      <Suspense fallback={<MediaDisplaySkeleton variant="grid" />}>
-        <ErrorBoundary fallback={<ErrorFetch />}>
-          <MediaDisplayGrid
-            heading="Trending Today"
-            href="/app"
-            initialPage={await getTrendingMedia()}
-          />
-        </ErrorBoundary>
-      </Suspense>
+      <ErrorBoundary fallback={<ErrorFetch />}>
+        <Suspense fallback={<MediaDisplaySkeleton variant="grid" />}>
+          <Trending />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
