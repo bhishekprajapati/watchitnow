@@ -23,17 +23,6 @@ export default async function page({}) {
             heading="Trending Today"
             href="/app"
             initialPage={await getTrendingMedia()}
-            ViewMoreButton={
-              <Link href="/app/trending">
-                <Button
-                  color="default"
-                  variant="flat"
-                  className="bg-semi-dark-blue"
-                >
-                  View More
-                </Button>
-              </Link>
-            }
           />
         </ErrorBoundary>
       </Suspense>

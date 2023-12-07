@@ -21,7 +21,9 @@ const renderGridItems = (pages) => {
 };
 
 MediaDisplay.propTypes = {
-  variant: PropTypes.oneOf(["grid", "list"]),
+  heading: PropTypes.string.isRequired,
+  initialPage: PropTypes.object.isRequired,
+  SlotViewMoreButton: PropTypes.element,
 };
 
 async function getTrendingAllToday({ page = 1 }) {
