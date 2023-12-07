@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    @apply !bg-dark-blue;
+  }
+
   body {
     @apply bg-dark-blue;
   }
