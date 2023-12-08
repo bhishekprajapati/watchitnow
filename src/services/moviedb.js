@@ -11,15 +11,12 @@ import { MovieDb } from "moviedb-promise";
 const moviedb = new MovieDb(process.env.TMDB_API_KEY);
 
 export async function getTrendingMedia(
-  options = {
-    mediaType: "all",
-    timeWindow: "day",
+  params = {
+    media_type: "all",
+    time_window: "day",
   }
 ) {
-  const res = await moviedb.trending({
-    media_type: options.mediaType,
-    time_window: options.timeWindow,
-  });
+  const res = await moviedb.trending(params);
 
   return {
     data: formatResults(res.results),
