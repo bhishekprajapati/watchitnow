@@ -13,7 +13,7 @@ const renderGridItems = (pages) => {
   const dataList = pages.map((page) => page.data).flat();
   return dataList.map((data) => {
     return (
-      <Grid.Item key={data.id}>
+      <Grid.Item key={`${data.id}${data.title}`}>
         <MediaDisplayCard data={data} />
       </Grid.Item>
     );
