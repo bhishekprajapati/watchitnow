@@ -1,12 +1,7 @@
-import {
-  IconMovie,
-  IconDeviceTv,
-  IconPlayerPlayFilled,
-} from "@tabler/icons-react";
-import classNames from "classnames";
+import { IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { twMerge } from "tailwind-merge";
 
-const POSTER_BASE_PATH = "https://www.themoviedb.org/t/p";
+const POSTER_BASE_PATH = "https://image.tmdb.org/t/p";
 
 function MediaCard({ as: Element = "article", children, className, ...props }) {
   return (
