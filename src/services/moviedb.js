@@ -126,3 +126,13 @@ export async function getImdbRating(id) {
   const { imdbRating } = await res.json();
   return imdbRating;
 }
+
+export async function getMovieCast(id) {
+  const res = await moviedb.movieCredits({ id });
+  return { data: res.cast };
+}
+
+export async function getTvCast(id) {
+  const res = await moviedb.tvCredits({ id });
+  return { data: res.cast };
+}
