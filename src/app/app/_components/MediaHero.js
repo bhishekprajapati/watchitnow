@@ -47,7 +47,7 @@ async function MediaHero({ mediaType, mediaId }) {
         <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
         <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
 
-        <div className="relative z-50 min-h-[60dvh] lg:flex lg:items-start lg:gap-x-[10%]">
+        <div className="relative z-50 min-h-[60vh] lg:flex lg:items-start lg:gap-x-[10%]">
           <div className="lg:flex-1 p-4">
             <div className="mb-2">
               <h1 className="text-heading-sm !text-yellow md:text-heading-lg !font-semibold">
