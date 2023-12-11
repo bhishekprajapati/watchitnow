@@ -84,15 +84,6 @@ export async function findTvSeries(id) {
   }
 }
 
-async function execFetch(url, ...args) {
-  const res = await fetch(url, ...args);
-  if (!res.ok) {
-    throw new Error("Something went wrong!");
-  }
-  const data = await res.json();
-  return data;
-}
-
 export const TvSeries = {
   async getGenres() {
     const url = `${config.baseUrl}/3/genre/tv/list?api_key=${config.key}`;
