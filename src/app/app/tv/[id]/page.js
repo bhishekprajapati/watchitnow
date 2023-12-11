@@ -1,9 +1,5 @@
-import MediaHero from "@/components/MediaHero";
+import MediaHero from "../../_components/MediaHero";
 
-export default async function TvPage({ params: { id: tvSeriesId } }) {
-  return (
-    <>
-      <MediaHero type="tv" mediaId={tvSeriesId} />
-    </>
-  );
+export default async function TvPage({ params: { id: tvId } }) {
+  return <MediaHero mediaType={"tv"} mediaId={tvId} />;
 }

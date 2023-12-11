@@ -107,3 +107,22 @@ export async function getTopRatedTv(params = { language: "en", page: 1 }) {
     },
   };
 }
+
+export async function findMedia({ type = "movie", id }) {
+  const fetcher = (type === "movie" ? moviedb.movieInfo : moviedb.tvInfo).bind(
+    moviedb
+  );
+  const formatter = type === "movie" ? formatMovieData : formatTvData;
+  const res = await fetcher({ id });
+  return {
+    data: formatter(res),
+  };
+}
+
+export async function getImdbRating(id) {
+  const res = await fetch(
+    `https://www.omdbapi.com/?i=${id}&apikey=${process.env.OMDB_API_KEY}`
+  );
+  const { imdbRating } = await res.json();
+  return imdbRating;
+}

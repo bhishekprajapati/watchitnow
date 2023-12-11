@@ -142,4 +142,14 @@
   .animate-breathe {
     animation: breathe-animation ease 20s infinite alternate;
   }
+
+  @keyframes backdrop-animation {
+    to {
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-backdrop {
+    animation: backdrop-animation ease 60s infinite alternate;
+  }
 }

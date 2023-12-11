@@ -1,7 +1,7 @@
 import { IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { twMerge } from "tailwind-merge";
 
-const POSTER_BASE_PATH = "https://image.tmdb.org/t/p";
+const IMG_BASE_URL = "https://image.tmdb.org/t/p";
 
 function MediaCard({ as: Element = "article", children, className, ...props }) {
   return (
@@ -17,29 +17,48 @@ MediaCard.Poster = ({ className, path, ...props }) => {
       <div className="h-full">
         <picture className={twMerge("h-full", className)} {...props}>
           <source
-            srcSet={`${POSTER_BASE_PATH}/original${path}`}
+            srcSet={`${IMG_BASE_URL}/original${path}`}
             media="(min-width: 1800px)"
           />
           <source
-            srcSet={`${POSTER_BASE_PATH}/w780${path}`}
+            srcSet={`${IMG_BASE_URL}/w780${path}`}
             media="(min-width: 1260px)"
           />
           <source
-            srcSet={`${POSTER_BASE_PATH}/w500${path}`}
+            srcSet={`${IMG_BASE_URL}/w500${path}`}
             media="(min-width: 768px)"
           />
           <source
-            srcSet={`${POSTER_BASE_PATH}/w342${path}`}
+            srcSet={`${IMG_BASE_URL}/w342${path}`}
             media="(min-width: 425px)"
           />
           <img
             className="w-full h-full object-cover object-center"
-            src={`${POSTER_BASE_PATH}/w300${path}`}
+            src={`${IMG_BASE_URL}/w300${path}`}
             loading="lazy"
           />
         </picture>
       </div>
     </div>
+  );
+};
+
+MediaCard.Backdrop = ({ className, path, ...props }) => {
+  return (
+    <picture className={twMerge("aspect-video", className)} {...props}>
+      <source
+        srcSet={`${IMG_BASE_URL}/original${path}`}
+        media="(min-width: 1800px)"
+      />
+      <source
+        srcSet={`${IMG_BASE_URL}/w1280${path}`}
+        media="(min-width: 1260px)"
+      />
+      <img
+        className="w-full h-full rounded-2xl object-cover object-center"
+        src={`${IMG_BASE_URL}/w780${path}`}
+      />
+    </picture>
   );
 };
 
