@@ -19,21 +19,14 @@ export default function MediaDisplaySkeleton({ variant = "list" }) {
   const containerProps = isListLayout ? listProps : gridProps;
 
   return (
-    <Section>
-      <Section.Header>
-        <div className="w-[40%] max-w-[15rem] h-10 animate-shine rounded-md"></div>
-      </Section.Header>
-      <Section.Content>
-        <Container {...containerProps}>
-          {data.map((_, idx) => {
-            return (
-              <ContainerItem key={idx}>
-                <MediaCardSkeleton />
-              </ContainerItem>
-            );
-          })}
-        </Container>
-      </Section.Content>
-    </Section>
+    <Container {...containerProps}>
+      {data.map((_, idx) => {
+        return (
+          <ContainerItem key={idx}>
+            <MediaCardSkeleton />
+          </ContainerItem>
+        );
+      })}
+    </Container>
   );
 }

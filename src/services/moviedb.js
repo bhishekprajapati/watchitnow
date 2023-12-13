@@ -136,3 +136,42 @@ export async function getTvCast(id) {
   const res = await moviedb.tvCredits({ id });
   return { data: res.cast };
 }
+
+export async function searchMulti(query) {
+  const res = await moviedb.searchMulti({ query });
+
+  return {
+    data: formatResults(res.results),
+    meta: {
+      page: res.page,
+      totalPages: res.page,
+      totalResults: res.total_results,
+    },
+  };
+}
+
+export async function searchTv(query) {
+  const res = await moviedb.searchTv({ query });
+
+  return {
+    data: res.results?.map((movie) => formatMovieData(movie)),
+    meta: {
+      page: res.page,
+      totalPages: res.page,
+      totalResults: res.total_results,
+    },
+  };
+}
+
+export async function searchMovie(query) {
+  const res = await moviedb.searchMovie({ query });
+
+  return {
+    data: res.results?.map((tv) => formatTvData(tv)),
+    meta: {
+      page: res.page,
+      totalPages: res.page,
+      totalResults: res.total_results,
+    },
+  };
+}

@@ -10,8 +10,21 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
   const [pages, setPages] = useState([initialPage]);
 
   async function fetchNext() {
+    // SKIP FIRING FETCH REQUEST IF ALREADY FETCHING
+    if (isFetching) {
+      return;
+    }
+
+    // SKIP TRYING IF WE HAVE ERROR
+    if (isError) {
+      return;
+    }
+
+    if (typeof fetcher !== "function") {
+      console.error("Fetcher is not a function");
+      return;
+    }
     try {
-      setIsError(false); // clear
       setIsFetching(true);
       const nextPage = await fetcher({
         currPage: pages[pages.length - 1],
@@ -25,11 +38,30 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
     }
   }
 
+  function setFetcher(func) {
+    if (!(typeof func === "function")) {
+      throw Error("Provide a function");
+    }
+
+    fetcher = func;
+  }
+
+  /**
+   * Paginator will stop accepting new fetch triggers if any error has occured
+   * in order to make paginator work again, `clearError` can be called
+   */
+  function clearError() {
+    setIsError(false); // clear
+    setError(null);
+  }
+
   return {
-    error,
     pages,
     isFetching,
-    isError,
+    setFetcher,
     fetchNext,
+    error,
+    isError,
+    clearError,
   };
 }
