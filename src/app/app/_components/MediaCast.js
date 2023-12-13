@@ -38,7 +38,7 @@ async function MediaCast({ mediaType, mediaId }) {
   return (
     <Section>
       <Section.Header>
-        <Section.Title>Section Heading</Section.Title>
+        <Section.Title>Top Cast</Section.Title>
       </Section.Header>
       <Section.Content>
         {!!!persons.length && (
