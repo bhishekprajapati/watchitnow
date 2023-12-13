@@ -15,63 +15,54 @@ export const metadata = {
 
 async function InTheatresList() {
   const page = await getNowPlayingMovies();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>In Threatres</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 async function TopRatedList() {
   const page = await getTopRatedMovies();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>Top Rated</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 async function UpcomingList() {
   const page = await getUpcomingMovies();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>Upcoming</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 export default function Page() {
   return (
     <>
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <InTheatresList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>In Threatres</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <InTheatresList />
+          </Suspense>
+        </Section.Content>
+      </Section>
 
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <TopRatedList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>Top Rated</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <TopRatedList />
+          </Suspense>
+        </Section.Content>
+      </Section>
 
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <UpcomingList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>Upcoming</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <UpcomingList />
+          </Suspense>
+        </Section.Content>
+      </Section>
     </>
   );
 }

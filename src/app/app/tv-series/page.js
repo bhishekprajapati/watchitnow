@@ -14,63 +14,54 @@ export const metadata = {
 
 async function AiringTodayList() {
   const page = await getAiringTodayTv();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>Airing Today</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 async function OnTheAirList() {
   const page = await getOnTheAirTv();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>On The Air</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 async function TopRatedList() {
   const page = await getTopRatedTv();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>Top Rated</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList dataList={page.data} />
-      </Section.Content>
-    </Section>
-  );
+  return <MediaDisplayList dataList={page.data} />;
 }
 
 export default function Page() {
   return (
     <>
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <AiringTodayList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>Airing Today</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <AiringTodayList />
+          </Suspense>
+        </Section.Content>
+      </Section>
 
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <TopRatedList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>On The Air</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <TopRatedList />
+          </Suspense>
+        </Section.Content>
+      </Section>
 
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <OnTheAirList />
-      </Suspense>
+      <Section>
+        <Section.Header>
+          <Section.Title>Top Rated</Section.Title>
+        </Section.Header>
+        <Section.Content>
+          <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
+            <OnTheAirList />
+          </Suspense>
+        </Section.Content>
+      </Section>
     </>
   );
 }
