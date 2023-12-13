@@ -26,8 +26,12 @@ Section.Header = ({
 };
 
 Section.Title = ({ as: Element = "h2", children, className, ...props }) => {
+  const title = twMerge(
+    "rounded-md py-1 pl-[.5em] pr-[2em] inline-block bg-gradient-to-r from-semi-dark-blue",
+    className
+  );
   return (
-    <Element className={className} {...props}>
+    <Element className={title} {...props}>
       {children}
     </Element>
   );
