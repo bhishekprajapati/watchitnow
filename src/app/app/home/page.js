@@ -18,37 +18,6 @@ export const metadata = {
   description: "Entertainment web app",
 };
 
-async function TrendingList() {
-  const exploreHref = "/app/trending";
-  const page = await getTrendingMedia();
-
-  return (
-    <Section>
-      <Section.Header>
-        <Section.Title>
-          <Link
-            href={exploreHref}
-            className=" transition-colors hover:text-yellow"
-          >
-            Trending Today{" "}
-            <IconChevronRight className="inline w-[1em] h-[1em]" />
-          </Link>
-        </Section.Title>
-      </Section.Header>
-      <Section.Content>
-        <MediaDisplayList
-          dataList={page.data}
-          SlotLastItem={
-            <Link href={exploreHref}>
-              <ShowMoreCard />
-            </Link>
-          }
-        />
-      </Section.Content>
-    </Section>
-  );
-}
-
 async function TrendingCarousel() {
   const res = await getTrendingMedia();
 
@@ -61,11 +30,6 @@ export default async function Page() {
       <div className="mb-8">
         <TrendingCarousel />
       </div>
-      <Suspense fallback={<MediaDisplaySkeleton variant="list" />}>
-        <ErrorBoundary fallback={<ErrorFetch />}>
-          <TrendingList />
-        </ErrorBoundary>
-      </Suspense>
     </>
   );
 }
