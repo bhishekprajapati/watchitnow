@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }) {
               <SearchBar />
             </div>
             {/* main content area */}
-            <div className="lg:px-8">{children}</div>
+            <div className="pb-2 lg:px-8 lg:pb-8">{children}</div>
           </div>
         </main>
       </div>
