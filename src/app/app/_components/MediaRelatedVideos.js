@@ -10,10 +10,16 @@ import {
 } from "@tabler/icons-react";
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
+import classNames from "classnames";
 
 const VideoCard = ({ data: video, isActive, onPlay }) => {
+  const classes = classNames(
+    "select-none h-full relative rounded-md p-4",
+    "bg-gradient-to-tr from-dark-blue",
+    isActive ? "to-greyish-blue/50" : "to-semi-dark-blue"
+  );
   return (
-    <article className="select-none h-full relative rounded-md p-4 bg-gradient-to-tr from-dark-blue to-semi-dark-blue">
+    <article className={classes}>
       <div className="group relative mb-4 aspect-video rounded-md">
         {!isActive && (
           <>
@@ -40,8 +46,8 @@ const VideoCard = ({ data: video, isActive, onPlay }) => {
 
         {isActive && (
           <iframe
-            src={`https://www.youtube.com/embed/${video.key}?autoplay=1`}
-            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${video.key}?autoplay=1&modestbranding=1&rel=0`}
+            className="w-full h-full rounded-md"
             frameBorder="0"
             allowFullScreen
           ></iframe>
