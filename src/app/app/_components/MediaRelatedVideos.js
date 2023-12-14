@@ -54,7 +54,10 @@ const VideoCard = ({ data: video, isActive, onPlay }) => {
         )}
       </div>
 
-      <div className="absolute top-0 right-0 p-8 pointer-events-none">
+      <div
+        className="absolute top-0 right-0 p-8 pointer-events-none"
+        style={{ opacity: isActive ? 0 : 1 }}
+      >
         <Chip className="bg-black/95 backdrop-blur">
           {video?.type ?? "Unknown"}
         </Chip>
@@ -87,28 +90,23 @@ export default function MediaRelatedVideos({ dataList = [] }) {
   }
 
   return (
-    <Section>
-      <Section.Header>
-        <Section.Title>Related Videos</Section.Title>
-      </Section.Header>
-      <Section.Content>
-        {dataList.length && (
-          <List
-            className="auto-cols-[100%] sm:auto-cols-[50%] md:auto-cols-[40%] xl:auto-cols-[30%] 2xl:auto-cols-[25%] gap-x-8"
-            scrollable="horizontal"
-          >
-            {dataList.map((video) => (
-              <List.Item key={video.key}>
-                <VideoCard
-                  data={video}
-                  isActive={activeKey === video.key}
-                  onPlay={handleOnPlay}
-                />
-              </List.Item>
-            ))}
-          </List>
-        )}
-      </Section.Content>
-    </Section>
+    <>
+      {dataList.length && (
+        <List
+          className="auto-cols-[100%] sm:auto-cols-[50%] md:auto-cols-[40%] xl:auto-cols-[30%] 2xl:auto-cols-[25%] gap-x-8"
+          scrollable="horizontal"
+        >
+          {dataList.map((video) => (
+            <List.Item key={video.key}>
+              <VideoCard
+                data={video}
+                isActive={activeKey === video.key}
+                onPlay={handleOnPlay}
+              />
+            </List.Item>
+          ))}
+        </List>
+      )}
+    </>
   );
 }
