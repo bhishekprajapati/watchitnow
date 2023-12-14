@@ -6,9 +6,7 @@ import {
   formatTvData,
 } from "@/services/formatters";
 
-import { MovieDb } from "moviedb-promise";
-
-const moviedb = new MovieDb(process.env.TMDB_API_KEY);
+import { moviedb } from "./db";
 
 export async function getTrendingMedia(
   params = {
