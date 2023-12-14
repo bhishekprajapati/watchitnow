@@ -1,17 +1,6 @@
-import Section from "@/components/Section";
-import ErrorFetch from "@/components/states/ErrorFetch";
-import ErrorBoundary from "@/components/errors/ErrorBoundary";
-import MediaDisplaySkeleton from "@/app/ui/skeleton/MediaDisplaySkeleton";
 import { getTrendingMedia } from "@/services/moviedb";
-import MediaDisplayList from "../_components/MediaDisplayList";
-import ShowMoreCard from "../_components/ShowMoreCard";
 
-import Link from "next/link";
-import { IconChevronRight } from "@tabler/icons-react";
-import { Suspense } from "react";
-import Carousel, { Slide } from "@/components/Carousel";
-import classNames from "classnames";
-import { motion } from "framer-motion";
+import Carousel from "@/components/Carousel";
 
 export const metadata = {
   title: "WatchItNow!",
