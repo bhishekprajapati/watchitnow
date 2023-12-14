@@ -1,6 +1,6 @@
 import MediaCard from "@/components/MediaCard";
 
-import Link from "next/link";
+import Link from "@/components/Link";
 
 export default function MediaDisplayCard({ data }) {
   const { id, title, type, posterPath } = data;

@@ -17,6 +17,7 @@
     "framer-motion": "^10.16.5",
     "moviedb-promise": "^4.0.3",
     "next": "14.0.1",
+    "nprogress": "^0.2.0",
     "popmotion": "^11.0.5",
     "prop-types": "^15.8.1",
     "react": "^18",
