@@ -56,7 +56,9 @@ async function MediaHero({ mediaType, mediaId }) {
               <h1 className="text-heading-sm !text-yellow md:text-heading-lg !font-semibold">
                 {data.title}
               </h1>
-              <h2 className="text-xl md:text-2xl">{data.tagline}</h2>
+              <h2 className="text-xl md:text-2xl text-white/80 italic">
+                {data.tagline}
+              </h2>
             </div>
             <div className="mb-4 md:flex md:gap-2">
               <div className="mb-2">
