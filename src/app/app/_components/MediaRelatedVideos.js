@@ -2,7 +2,6 @@
 
 import Chip from "@/components/Chip";
 import List from "@/components/List";
-import Section from "@/components/Section";
 import IconVerified from "@/components/Icons/IconVerified";
 import {
   IconBrandYoutubeFilled,
@@ -11,6 +10,7 @@ import {
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
 import classNames from "classnames";
+import LazyImage from "@/components/LazyImage";
 
 const VideoCard = ({ data: video, isActive, onPlay }) => {
   const classes = classNames(
@@ -23,10 +23,11 @@ const VideoCard = ({ data: video, isActive, onPlay }) => {
       <div className="group relative mb-4 aspect-video rounded-md">
         {!isActive && (
           <>
-            <img
-              className="rounded-md w-full h-full object-cover object-center"
+            <LazyImage
               src={`https://img.youtube.com/vi/${video.key}/0.jpg`}
-              loading="lazy"
+              blurSrc={`https://img.youtube.com/vi/${video.key}/default.jpg`}
+              className="rounded-md"
+              wrapperProps={{ className: "rounded-md" }}
             />
 
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">

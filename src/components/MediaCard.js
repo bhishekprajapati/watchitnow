@@ -1,3 +1,6 @@
+import LazyImage from "./LazyImage";
+import NoPosterImage from "../../public/no-poster.png";
+
 import { IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { twMerge } from "tailwind-merge";
 
@@ -13,32 +16,24 @@ function MediaCard({ as: Element = "article", children, className, ...props }) {
 
 MediaCard.Poster = ({ className, path, ...props }) => {
   return (
-    <div className="aspect-[22/33] overflow-hidden rounded-xl">
-      <div className="h-full">
-        <picture className={twMerge("h-full", className)} {...props}>
-          <source
-            srcSet={`${IMG_BASE_URL}/original${path}`}
-            media="(min-width: 1800px)"
-          />
-          <source
-            srcSet={`${IMG_BASE_URL}/w780${path}`}
-            media="(min-width: 1260px)"
-          />
-          <source
-            srcSet={`${IMG_BASE_URL}/w500${path}`}
-            media="(min-width: 768px)"
-          />
-          <source
-            srcSet={`${IMG_BASE_URL}/w342${path}`}
-            media="(min-width: 425px)"
-          />
-          <img
-            className="w-full h-full object-cover object-center"
-            src={`${IMG_BASE_URL}/w300${path}`}
-            loading="lazy"
-          />
-        </picture>
-      </div>
+    <div className="aspect-[22/33] relative overflow-hidden rounded-xl">
+      {!path && (
+        <img
+          className="w-full h-full object-cover object-center"
+          src={NoPosterImage}
+          decoding="async"
+          loading="lazy"
+        />
+      )}
+
+      {path && (
+        <LazyImage
+          alt="poster"
+          src={`${IMG_BASE_URL}/w300${path}`}
+          blurSrc={`${IMG_BASE_URL}/w92${path}`}
+          decoding="async"
+        />
+      )}
     </div>
   );
 };

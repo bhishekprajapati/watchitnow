@@ -1,33 +1,20 @@
 import List from "@/components/List";
 import Section from "@/components/Section";
+import LazyImage from "@/components/LazyImage";
 import { getMovieCast, getTvCast } from "@/services/moviedb";
 import { IconExclamationMark } from "@tabler/icons-react";
-import { IconExclamationMarkOff } from "@tabler/icons-react";
-import { IconFlagExclamation } from "@tabler/icons-react";
-import { IconCircleXFilled } from "@tabler/icons-react";
 import { IconUserOff } from "@tabler/icons-react";
-
-import { twMerge } from "tailwind-merge";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p";
 
 function PersonCard({ className, path, ...props }) {
   return (
-    <picture className={twMerge("w-full h-full", className)} {...props}>
-      <source
-        srcSet={`${IMG_BASE_URL}/original${path}`}
-        media="(min-width: 1440px)"
-      />
-      <source
-        srcSet={`${IMG_BASE_URL}/h632${path}`}
-        media="(min-width: 768px)"
-      />
-      <img
-        className="w-full h-full object-cover object-center"
-        src={`${IMG_BASE_URL}/w185${path}`}
-        loading="lazy"
-      />
-    </picture>
+    <LazyImage
+      className={className}
+      src={`${IMG_BASE_URL}/w185${path}`}
+      blurSrc={`${IMG_BASE_URL}/w45${path}`}
+      decoding="async"
+    />
   );
 }
 
