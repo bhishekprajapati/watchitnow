@@ -139,8 +139,8 @@ export async function getTvCast(id) {
  * Multi search only includes the types
  * `movie` and `tv`
  */
-export async function searchMulti(query) {
-  const res = await moviedb.searchMulti({ query });
+export async function searchMulti({ query, page }) {
+  const res = await moviedb.searchMulti({ query, page });
 
   return {
     data: formatResults(res.results)?.filter(
