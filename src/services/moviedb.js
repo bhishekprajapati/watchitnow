@@ -7,6 +7,7 @@ import {
 } from "@/services/formatters";
 
 import { moviedb } from "./db";
+import { retry } from "@/utils";
 
 export async function getTrendingMedia(
   params = {
@@ -140,7 +141,15 @@ export async function getTvCast(id) {
  * `movie` and `tv`
  */
 export async function searchMulti({ query, page }) {
-  const res = await moviedb.searchMulti({ query, page });
+  const res = await retry(
+    async () =>
+      await moviedb.searchMulti(
+        { query, page },
+        {
+          timeout: 1000,
+        }
+      )
+  );
 
   return {
     data: formatResults(res.results)?.filter(

@@ -42,9 +42,9 @@ export async function retry(
       }
 
       const retryNumber = config.maxRetries + 1 - triesLeft; // total tries - triesleft
-      const secs =
+      const ms =
         config.interval * 1000 * Math.pow(config.exponentialRate, retryNumber);
-      await delay(secs);
+      await delay(ms);
     }
   }
 }
