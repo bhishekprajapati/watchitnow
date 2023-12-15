@@ -5,6 +5,7 @@ import List from "@/components/List";
 import IconVerified from "@/components/Icons/IconVerified";
 import {
   IconBrandYoutubeFilled,
+  IconMoodSadFilled,
   IconPlayerPlayFilled,
 } from "@tabler/icons-react";
 import { Button } from "@nextui-org/react";
@@ -92,7 +93,13 @@ export default function MediaRelatedVideos({ dataList = [] }) {
 
   return (
     <>
-      {dataList.length && (
+      {!!!dataList.length && (
+        <div className="p-6 sm:py-16 text-yellow/50 text-center  bg-gradient-to-t from-semi-dark-blue/5 to-semi-dark-blue/50 rounded-xl border-2 border-semi-dark-blue">
+          <IconMoodSadFilled className="mb-4 inline-block" size={36} />
+          <h2 className="text-lg">No Content here!</h2>
+        </div>
+      )}
+      {!!dataList.length && (
         <List
           className="auto-cols-[100%] sm:auto-cols-[50%] md:auto-cols-[40%] xl:auto-cols-[30%] 2xl:auto-cols-[25%] gap-x-8"
           scrollable="horizontal"
