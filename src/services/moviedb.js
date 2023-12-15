@@ -15,7 +15,12 @@ export async function getTrendingMedia(
     time_window: "day",
   }
 ) {
-  const res = await moviedb.trending(params);
+  const res = await retry(
+    async () =>
+      await moviedb.trending(params, {
+        timeout: 1000,
+      })
+  );
 
   return {
     data: formatResults(res.results),
