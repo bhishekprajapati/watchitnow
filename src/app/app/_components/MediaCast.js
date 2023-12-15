@@ -39,7 +39,7 @@ async function MediaCast({ mediaType, mediaId }) {
         )}
         {!!persons.length && (
           <List
-            className="auto-cols-[33%] sm:auto-cols-[8rem] md:auto-cols-[12rem]"
+            className="gap-x-[2rem] auto-cols-[33%] sm:auto-cols-[8rem] md:auto-cols-[12rem]"
             scrollable="horizontal"
           >
             {persons?.map((person) => {
