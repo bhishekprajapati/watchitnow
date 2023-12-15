@@ -135,11 +135,17 @@ export async function getTvCast(id) {
   return { data: res.cast };
 }
 
+/**
+ * Multi search only includes the types
+ * `movie` and `tv`
+ */
 export async function searchMulti(query) {
   const res = await moviedb.searchMulti({ query });
 
   return {
-    data: formatResults(res.results),
+    data: formatResults(res.results)?.filter(
+      (media) => media.type !== "person"
+    ),
     meta: {
       page: res.page,
       totalPages: res.page,

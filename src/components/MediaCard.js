@@ -1,5 +1,4 @@
 import LazyImage from "./LazyImage";
-import NoPosterImage from "../../public/no-poster.png";
 
 import { IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { twMerge } from "tailwind-merge";
@@ -20,7 +19,7 @@ MediaCard.Poster = ({ className, path, ...props }) => {
       {!path && (
         <img
           className="w-full h-full object-cover object-center"
-          src={NoPosterImage}
+          src="/no-poster.png"
           decoding="async"
           loading="lazy"
         />
