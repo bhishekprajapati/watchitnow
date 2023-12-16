@@ -49,7 +49,7 @@ MediaCard.Backdrop = ({ className, path, ...props }) => {
         media="(min-width: 1260px)"
       />
       <img
-        className="w-full h-full rounded-2xl object-cover object-center"
+        className="w-full h-full object-cover object-center"
         src={`${IMG_BASE_URL}/w780${path}`}
       />
     </picture>
