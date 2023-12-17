@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function IndexPage() {
-  redirect("/app");
+export default async function IndexPage() {
+  return redirect("/app/home");
 }
