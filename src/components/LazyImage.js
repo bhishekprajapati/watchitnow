@@ -44,7 +44,7 @@ export default function LazyImage({
     /**
      * `load` event needs to registered first before adding the `src`
      */
-    imgRef.current.addEventListener("load", handleLoad);
+    imgRef.current.addEventListener("load", handleLoad, { once: true });
 
     if (sizes) {
       imgRef.current.sizes = sizes;
