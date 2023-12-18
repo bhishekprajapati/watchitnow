@@ -22,14 +22,15 @@ export default async function SearchPage({ searchParams: { query } }) {
     return <QueryMissingError />;
   }
 
+  const initialPage = await searchMulti({ query, page: 1 });
+
   return (
     <>
-      <MediaPaginatorProvider
-        initialPage={await searchMulti({ query, page: 1 })}
-      >
+      <MediaPaginatorProvider key={query} initialPage={initialPage}>
         <Section className="relative">
           <Section.Header className="sticky flex items-center justify-between">
             <Section.Title>Search results</Section.Title>
+            <span>Total results {initialPage.meta.totalResults}</span>
           </Section.Header>
           <Section.Content>
             <SearchMediaFetcher>

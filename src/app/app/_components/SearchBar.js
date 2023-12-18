@@ -4,10 +4,9 @@ import SearchForm from "./SearchForm";
 import SearchResults from "./SearchResults";
 
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
-import useMount from "@/hooks/useMount";
 
 async function search({ query }) {
   const res = await fetch(`/api/search/multi?q=${query}&limit=10`);
@@ -37,6 +36,8 @@ function SearchResultsLayout({ children, expand = false }) {
 
 function SearchBar({ className }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const queryParam = searchParams.get("query");
 
   const [results, setResults] = useState(null);
   const [query, setQuery] = useState("");
@@ -78,11 +79,12 @@ function SearchBar({ className }) {
       <div className="relative z-50 lg:px-8 lg:py-6 bg-dark-blue/95 backdrop-blur-3xl shadow-2xl shadow-dark-blue/80">
         <SearchForm
           isLoading={isLoading}
-          key={usePathname()}
+          key={usePathname() + queryParam}
           onInput={(e) => setQuery(e.target.value)}
           onSubmit={handleSubmit}
           debounce
-          delay={150}
+          delay={250}
+          defaultValue={queryParam ? queryParam : ""}
         />
       </div>
       <SearchResultsLayout expand={showResults}>
