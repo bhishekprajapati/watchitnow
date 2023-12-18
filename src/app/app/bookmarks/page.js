@@ -2,6 +2,6 @@ export const metadata = {
   title: "Bookmarks",
 };
 
-export default function Page() {
+export default async function Page() {
   return <></>;
 }
