@@ -6,6 +6,7 @@ import MediaDisplayCard from "./MediaDisplayCard";
 import { MediaPaginatorContext } from "@/contexts/MediaPaginatorProvider";
 import { useContext } from "react";
 import { Button } from "@nextui-org/react";
+import AllCaughtUp from "@/components/states/AllCaughtUp";
 
 const renderGridItems = (pages) => {
   const dataList = pages.map((page) => page.data).flat();
@@ -34,14 +35,20 @@ const LoadingError = ({ error, onClick }) => {
 
 export default function MediaDisplay({}) {
   const paginator = useContext(MediaPaginatorContext);
+  const isAllCaughtUp = paginator.isAllContentLoaded;
 
   return (
     <>
-      <Grid className="mb-8">{renderGridItems(paginator.pages)}</Grid>
-      {!paginator.isError && <ScrollTrigger trigger={paginator.fetchNext} />}
-      {paginator.isError && (
+      <Grid className="mb-8 md:mb-16">{renderGridItems(paginator.pages)}</Grid>
+
+      {!isAllCaughtUp && !paginator.isError && (
+        <ScrollTrigger trigger={paginator.fetchNext} />
+      )}
+      {!isAllCaughtUp && paginator.isError && (
         <LoadingError error={paginator.error} onClick={paginator.clearError} />
       )}
+
+      {isAllCaughtUp && <AllCaughtUp />}
     </>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export default function useInfinitePagination({ fetcher, initialPage }) {
+  const [isAllContentLoaded, setIsAllContentLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -30,6 +31,13 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
         currPage: pages[pages.length - 1],
       });
       setIsFetching(false);
+
+      // if `true` means all pages are loaded
+      if (nextPage === undefined) {
+        setIsAllContentLoaded(true);
+        return;
+      }
+
       setPages((prev) => [...prev, nextPage]);
     } catch (err) {
       setIsError(true);
@@ -57,6 +65,7 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
 
   return {
     pages,
+    isAllContentLoaded,
     isFetching,
     setFetcher,
     fetchNext,

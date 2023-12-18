@@ -28,9 +28,11 @@ export default async function SearchPage({ searchParams: { query } }) {
     <>
       <MediaPaginatorProvider key={query} initialPage={initialPage}>
         <Section className="relative">
-          <Section.Header className="sticky flex items-center justify-between">
-            <Section.Title>Search results</Section.Title>
-            <span>Total results {initialPage.meta.totalResults}</span>
+          <Section.Header className="mb-8 md:flex md:items-center md:justify-between">
+            <Section.Title className="mb-4">Search results</Section.Title>
+            <h3 className="text-sm md:text-md lg:text-lg">
+              Total results {initialPage.meta.totalResults}
+            </h3>
           </Section.Header>
           <Section.Content>
             <SearchMediaFetcher>

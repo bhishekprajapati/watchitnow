@@ -14,6 +14,10 @@ async function getTrending({ page = 1 }) {
 export function TrendingMediaFetcher({ children }) {
   const ctx = useContext(MediaPaginatorContext);
   ctx.setFetcher(async ({ currPage }) => {
+    if (currPage.meta.page === currPage.meta.totalPages) {
+      return undefined;
+    }
+
     const nextPage = await getTrending({ page: currPage.meta.page + 1 });
     return nextPage;
   });
@@ -31,6 +35,13 @@ export function SearchMediaFetcher({ children }) {
   const searchParams = useSearchParams();
 
   ctx.setFetcher(async ({ currPage }) => {
+    /**
+     * return `undefined` in case there are no pages left to load
+     */
+    if (currPage.meta.page === currPage.meta.totalPages) {
+      return undefined;
+    }
+
     const nextPage = await search({
       query: searchParams.get("query"),
       page: currPage.meta.page + 1,
