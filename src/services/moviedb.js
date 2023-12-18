@@ -162,7 +162,7 @@ export async function searchMulti({ query, page }) {
     ),
     meta: {
       page: res.page,
-      totalPages: res.page,
+      totalPages: res.total_pages,
       totalResults: res.total_results,
     },
   };
