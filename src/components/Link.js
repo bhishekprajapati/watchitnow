@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect, forwardRef } from "react";
 import NextLink from "next/link";
 import NProgress from "nprogress";
 import "@/app/nprogress.css";
-import { useEffect } from "react";
 
 NProgress.configure({ showSpinner: false });
 
-export default function Link({ href, children, ...props }) {
+function Link({ href, children, className, ...props }, ref) {
   useEffect(() => {
     return () => {
       NProgress.done();
@@ -15,8 +15,16 @@ export default function Link({ href, children, ...props }) {
   });
 
   return (
-    <NextLink onClick={() => NProgress.start()} href={href} {...props}>
+    <NextLink
+      onClick={() => NProgress.start()}
+      href={href}
+      {...props}
+      className={className}
+      ref={ref}
+    >
       {children}
     </NextLink>
   );
 }
+
+export default forwardRef(Link);
