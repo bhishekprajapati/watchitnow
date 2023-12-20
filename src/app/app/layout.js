@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
           </header>
           <main className="flex-1 lg:overflow-y-auto scrollbar-track-dark-blue scrollbar-thumb-greyish-blue scrollbar-thin">
             <div className="pt-6 px-5 md:p-0 lg:w-full lg:h-full">
-              <div className="relative z-[1000] mb-4 md:mb-4 lg:sticky lg:top-0 lg:left-0 lg:right-0">
+              <div className="relative z-[1000] mb-4 md:mb-4 lg:px-8 lg:py-6 lg:sticky lg:top-0 lg:left-0 lg:right-0 bg-dark-blue/95 backdrop-blur-xl shadow-2xl shadow-dark-blue">
                 <SearchBar />
               </div>
               {/* main content area */}
