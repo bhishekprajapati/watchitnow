@@ -1,3 +1,6 @@
+"use client";
+
+import { isServer } from "@/utils";
 import useMount from "./useMount";
 import useUnmount from "./useUnmount";
 
@@ -5,8 +8,8 @@ import { useState } from "react";
 
 export default function useViewportSize() {
   const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: isServer() ? 0 : window.innerWidth,
+    height: isServer() ? 0 : window.innerHeight,
   });
 
   const handleResize = (e) => {
