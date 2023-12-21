@@ -6,7 +6,6 @@ import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 import { moviedb } from "@/services/db";
 import { Suspense } from "react";
 import MediaVideosSkeleton from "@/app/ui/skeleton/MediaVideosSkeleton";
-import { delay } from "@/utils";
 
 async function TvTrailers({ id }) {
   const res = await moviedb.tvVideos({ id, language: "en" });
