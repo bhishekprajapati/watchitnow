@@ -26,6 +26,7 @@
     "react-dom": "^18",
     "react-lazy-load-image-component": "^1.6.0",
     "react-parallax-tilt": "^1.7.176",
+    "swiper": "^11.0.5",
     "swr": "^2.2.4",
     "tailwind-merge": "^2.0.0"
   },
