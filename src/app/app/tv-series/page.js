@@ -14,7 +14,7 @@ export const metadata = {
 
 async function AiringTodayList() {
   const page = await getAiringTodayTv();
-  return <MediaDisplayList dataList={page.data} />;
+  return <MediaDisplayList dataList={page.data} variant="backdrop" />;
 }
 
 async function OnTheAirList() {

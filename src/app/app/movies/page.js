@@ -15,7 +15,7 @@ export const metadata = {
 
 async function InTheatresList() {
   const page = await getNowPlayingMovies();
-  return <MediaDisplayList dataList={page.data} />;
+  return <MediaDisplayList dataList={page.data} variant="backdrop" />;
 }
 
 async function TopRatedList() {
