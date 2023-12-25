@@ -2,6 +2,7 @@ import MediaCard from "@/components/MediaCard";
 import Link from "@/components/Link";
 
 import PropTypes from "prop-types";
+import MediaLink from "./MediaLink";
 
 MediaDisplayCard.propTypes = {
   variant: PropTypes.oneOf(["poster", "backdrop"]),
@@ -12,7 +13,7 @@ export default function MediaDisplayCard({ data, variant = "poster" }) {
 
   return (
     <MediaCard>
-      <Link className="block mb-2" href={`/app/${type}/${id}`}>
+      <MediaLink className="block mb-2" type={type} id={id}>
         {variant === "poster" ? (
           <MediaCard.Poster path={posterPath} />
         ) : (
@@ -21,7 +22,7 @@ export default function MediaDisplayCard({ data, variant = "poster" }) {
             className="rounded-md overflow-hidden"
           />
         )}
-      </Link>
+      </MediaLink>
       <MediaCard.Title>{title}</MediaCard.Title>
     </MediaCard>
   );

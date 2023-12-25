@@ -12,6 +12,7 @@ import { Button } from "@nextui-org/react";
 import { useState } from "react";
 import classNames from "classnames";
 import LazyImage from "@/components/LazyImage";
+import ButtonPlay from "@/components/ButtonPlay";
 
 const VideoCard = ({ data: video, isActive, onPlay }) => {
   const classes = classNames(
@@ -32,16 +33,7 @@ const VideoCard = ({ data: video, isActive, onPlay }) => {
             />
 
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-              <Button
-                variant="shadow"
-                color="warning"
-                radius="full"
-                className="scale-[3] opacity-0 pointer-events-none transition-all duration-75 group-hover:opacity-100 group-hover:scale-[1.5] group-hover:pointer-events-auto rounded-full"
-                isIconOnly
-                onClick={() => onPlay(video.key)}
-              >
-                <IconPlayerPlayFilled className="m-2" size={36} />
-              </Button>
+              <ButtonPlay size="md" onClick={() => onPlay(video.key)} />
             </div>
           </>
         )}
