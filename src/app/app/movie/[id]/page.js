@@ -13,6 +13,10 @@ async function MovieTrailers({ id }) {
   return <MediaRelatedVideos dataList={res.results} />;
 }
 
+export const metadata = {
+  title: "Movie",
+};
+
 export default async function MoviePage({ params: { id: movieId } }) {
   const mediaProps = {
     mediaType: "movie",

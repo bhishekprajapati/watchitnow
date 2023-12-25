@@ -13,6 +13,10 @@ async function TvTrailers({ id }) {
   return <MediaRelatedVideos dataList={res.results} />;
 }
 
+export const metadata = {
+  title: "Tv Series",
+};
+
 export default async function TvPage({ params: { id: tvId } }) {
   const mediaProps = {
     mediaType: "tv",
