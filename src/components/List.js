@@ -71,7 +71,7 @@ export default function List({
   const horizontalScrollable = classNames(
     "overflow-x-auto scrollbar-none",
     "grid grid-flow-col auto-cols-[1fr] gap-x-4",
-    "snap-x"
+    "snap-x snap-mandatory"
   );
 
   const verticalScrollable = classNames();
