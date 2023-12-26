@@ -15,7 +15,6 @@ export const metadata = {
 
 async function InTheatresList() {
   const page = await getNowPlayingMovies();
-  throw Error("Unhandled error");
   return <MediaDisplayList dataList={page.data} variant="backdrop" />;
 }
 
