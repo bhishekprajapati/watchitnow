@@ -9,6 +9,36 @@ import {
 import { moviedb } from "./db";
 import { retry } from "@/utils";
 
+export async function getMovieRecommendation(params = { id }) {
+  const res = await retry(
+    async () => await moviedb.movieRecommendations({ id: params.id })
+  );
+
+  return {
+    data: res.results?.map((movie) => formatMovieData(movie)),
+    meta: {
+      page: res.page,
+      totalPages: res.total_pages,
+      totalResults: res.total_results,
+    },
+  };
+}
+
+export async function getTvRecommendation(params = { id }) {
+  const res = await retry(
+    async () => await moviedb.tvRecommendations({ id: params.id })
+  );
+
+  return {
+    data: res.results?.map((tv) => formatTvData(tv)),
+    meta: {
+      page: res.page,
+      totalPages: res.total_pages,
+      totalResults: res.total_results,
+    },
+  };
+}
+
 export async function getTrendingMedia(
   params = {
     media_type: "all",

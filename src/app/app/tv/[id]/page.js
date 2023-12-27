@@ -6,6 +6,7 @@ import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 import { moviedb } from "@/services/db";
 import { Suspense } from "react";
 import MediaVideosSkeleton from "@/app/ui/skeleton/MediaVideosSkeleton";
+import MediaRecommendation from "../../_components/MediaRecommendation";
 
 async function TvTrailers({ id }) {
   const res = await moviedb.tvVideos({ id, language: "en" });
@@ -37,6 +38,8 @@ export default async function TvPage({ params: { id: tvId } }) {
           </Suspense>
         </Section.Content>
       </Section>
+
+      <MediaRecommendation {...mediaProps} />
     </>
   );
 }
