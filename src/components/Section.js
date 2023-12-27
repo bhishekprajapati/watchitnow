@@ -4,17 +4,19 @@ import { IconAlertTriangle } from "@tabler/icons-react";
 
 function SectionFallback() {
   return (
-    <div className="px-5 lg:px-8 mb-6 md:mb-8 lg:mb-10 rounded-xl p-8 md:p-16 lg:p-20 xl:p-24 flex items-center justify-center bg-gradient-to-t from-semi-dark-blue/5 to-semi-dark-blue/50 border-2 border-semi-dark-blue">
-      <div className="text-center">
-        <IconAlertTriangle
-          width={48}
-          height={48}
-          stroke={1.2}
-          className="mb-4 text-red inline-block"
-        />
-        <p className="text-lg font-light text-red">
-          Oops! Unable to load this section
-        </p>
+    <div className="px-5 lg:px-8">
+      <div className="mb-6 md:mb-8 lg:mb-10 rounded-xl p-8 md:p-16 lg:p-20 xl:p-24 flex items-center justify-center bg-gradient-to-t from-semi-dark-blue/5 to-semi-dark-blue/50 border-2 border-semi-dark-blue">
+        <div className="text-center">
+          <IconAlertTriangle
+            width={48}
+            height={48}
+            stroke={1.2}
+            className="mb-4 text-red inline-block"
+          />
+          <p className="text-lg font-light text-red">
+            Oops! Unable to load this section
+          </p>
+        </div>
       </div>
     </div>
   );
