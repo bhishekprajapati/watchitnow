@@ -8,6 +8,7 @@ import MediaCardSkeleton from "@/app/ui/skeleton/MediaCardSkeleton";
 
 import PropTypes from "prop-types";
 import { Suspense } from "react";
+import classNames from "classnames";
 
 Container.propTypes = {
   variant: PropTypes.oneOf(["poster", "backdrop"]),
@@ -24,9 +25,11 @@ function Container({ variant = "poster", layout = "list", children }) {
   }
 
   const isPosterVariant = variant === "poster";
-  const list = isPosterVariant
-    ? "auto-cols-[33%] sm:auto-cols-[8rem] md:auto-cols-[12rem]"
-    : "gap-x-6 auto-cols-[90%] sm:auto-cols-[60%] md:auto-cols-[50%] lg:auto-cols-[20rem]";
+  const list = classNames(
+    isPosterVariant
+      ? "auto-cols-[33%] sm:auto-cols-[8rem] md:auto-cols-[12rem]"
+      : "gap-x-6 auto-cols-[90%] sm:auto-cols-[60%] md:auto-cols-[50%] lg:auto-cols-[20rem]"
+  );
 
   const ListItem = ({ children, ...props }) => (
     <li className="snap-start" {...props}>
@@ -110,11 +113,15 @@ export default function MediaSection({
   infinite = false,
 }) {
   return (
-    <Section>
-      <Section.Header>
+    <Section className="!p-0">
+      <Section.Header className="px-5 lg:px-8">
         <Section.Title>{title}</Section.Title>
       </Section.Header>
-      <Section.Content>
+      <Section.Content
+        className={
+          infinite || layout === "grid" ? "px-5 lg:px-8" : "pl-5 lg:pl-8"
+        }
+      >
         <Suspense
           fallback={<ContentFallback variant={variant} layout={layout} />}
         >

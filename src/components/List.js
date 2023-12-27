@@ -69,6 +69,7 @@ export default function List({
   ...props
 }) {
   const horizontalScrollable = classNames(
+    "pr-5 lg:pr-8",
     "overflow-x-auto scrollbar-none",
     "grid grid-flow-col auto-cols-[1fr] gap-x-4",
     "snap-x snap-mandatory"
@@ -89,9 +90,9 @@ export default function List({
   const overflow = scrollable === "horizontal" && useOverflow(listRef);
   const overflowClasses = classNames(
     "[&:hover>:last-child]:opacity-100 [&:hover>:first-child]:opacity-100",
-    overflow ? "overflow-indicators" : "",
-    overflow?.first ? "show-left" : "",
-    overflow?.last ? "show-right" : ""
+    overflow ? "[@media(hover:hover)]:overflow-indicators" : "",
+    overflow?.first ? "[@media(hover:hover)]:show-left" : "",
+    overflow?.last ? "[@media(hover:hover)]:show-right" : ""
   );
 
   function onScrollLeft() {

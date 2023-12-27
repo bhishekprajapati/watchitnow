@@ -28,7 +28,7 @@ export default async function MoviePage({ params: { id: movieId } }) {
       <MediaHero {...mediaProps} />
       <MediaCast {...mediaProps} />
 
-      <Section>
+      <Section className="!pr-0">
         <Section.Header>
           <Section.Title>Related Videos</Section.Title>
         </Section.Header>

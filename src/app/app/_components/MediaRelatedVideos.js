@@ -93,7 +93,7 @@ export default function MediaRelatedVideos({ dataList = [] }) {
       )}
       {!!dataList.length && (
         <List
-          className="auto-cols-[100%] sm:auto-cols-[50%] md:auto-cols-[40%] xl:auto-cols-[30%] 2xl:auto-cols-[25%] gap-x-8"
+          className="auto-cols-[90%] sm:auto-cols-[50%] md:auto-cols-[40%] xl:auto-cols-[30%] 2xl:auto-cols-[25%] gap-x-4"
           scrollable="horizontal"
         >
           {dataList.map((video) => (
