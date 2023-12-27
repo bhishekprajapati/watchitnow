@@ -16,18 +16,10 @@ export default function Page() {
       <MediaSection
         variant="backdrop"
         title="Airing Today"
-        fetcher={async () => (await getAiringTodayTv()).data}
+        fetcher={getAiringTodayTv}
       />
-
-      <MediaSection
-        title="On The Air"
-        fetcher={async () => (await getOnTheAirTv()).data}
-      />
-
-      <MediaSection
-        title="Top Rated"
-        fetcher={async () => (await getTopRatedTv()).data}
-      />
+      <MediaSection title="On The Air" fetcher={getOnTheAirTv} />
+      <MediaSection title="Top Rated" layout="grid" fetcher={getTopRatedTv} />
     </>
   );
 }

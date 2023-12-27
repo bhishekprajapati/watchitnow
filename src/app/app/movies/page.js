@@ -16,17 +16,13 @@ export default function Page() {
       <MediaSection
         variant="backdrop"
         title="In Threatres"
-        fetcher={async () => (await getNowPlayingMovies()).data}
+        fetcher={getNowPlayingMovies}
       />
-
-      <MediaSection
-        title="Top Rated"
-        fetcher={async () => (await getTopRatedMovies()).data}
-      />
-
+      <MediaSection title="Top Rated" fetcher={getTopRatedMovies} />
       <MediaSection
         title="Upcoming"
-        fetcher={async () => (await getUpcomingMovies()).data}
+        layout="grid"
+        fetcher={getUpcomingMovies}
       />
     </>
   );

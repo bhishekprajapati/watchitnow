@@ -46,14 +46,6 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
     }
   }
 
-  function setFetcher(func) {
-    if (!(typeof func === "function")) {
-      throw Error("Provide a function");
-    }
-
-    fetcher = func;
-  }
-
   /**
    * Paginator will stop accepting new fetch triggers if any error has occured
    * in order to make paginator work again, `clearError` can be called
@@ -67,7 +59,6 @@ export default function useInfinitePagination({ fetcher, initialPage }) {
     pages,
     isAllContentLoaded,
     isFetching,
-    setFetcher,
     fetchNext,
     error,
     isError,
