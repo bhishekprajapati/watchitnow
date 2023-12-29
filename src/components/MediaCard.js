@@ -13,6 +13,30 @@ function MediaCard({ as: Element = "article", children, className, ...props }) {
   );
 }
 
+MediaCard.Still = ({ className, path, ...props }) => {
+  return (
+    <div className="aspect-[22/33] relative overflow-hidden rounded-xl">
+      {!path && (
+        <img
+          className="w-full h-full object-cover object-center"
+          src="/no-poster.png"
+          decoding="async"
+          loading="lazy"
+        />
+      )}
+
+      {path && (
+        <LazyImage
+          alt="poster"
+          src={`${IMG_BASE_URL}/original${path}`}
+          blurSrc={`${IMG_BASE_URL}/w92${path}`}
+          decoding="async"
+        />
+      )}
+    </div>
+  );
+};
+
 MediaCard.Poster = ({ className, path, ...props }) => {
   return (
     <div className="aspect-[22/33] relative overflow-hidden rounded-xl">

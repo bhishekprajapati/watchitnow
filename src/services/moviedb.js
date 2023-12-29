@@ -9,6 +9,19 @@ import {
 import { moviedb } from "./db";
 import { retry } from "@/utils";
 
+export async function getSeasons(id) {
+  const res = await retry(async () => await moviedb.tvInfo({ id }));
+  return res.seasons;
+}
+
+export async function getSeasonInfo({ seriesId, seasonNumber }) {
+  const res = await moviedb.seasonInfo({
+    id: seriesId,
+    season_number: seasonNumber,
+  });
+  return res;
+}
+
 export async function getMovieRecommendation(params = { id }) {
   const res = await retry(
     async () => await moviedb.movieRecommendations({ id: params.id })
