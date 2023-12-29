@@ -21,7 +21,9 @@ function EpisodeInfo({ episode }) {
             {episode.name}
           </h3>
           <div className="mb-4 flex flex-wrap gap-2">
-            <Chip>Episode {episode["episode_number"]}</Chip>
+            <Chip className="bg-black">
+              Episode {episode["episode_number"]}
+            </Chip>
             <Chip>{episode["runtime"]} mins</Chip>
             <Chip>{episode["air_date"]}</Chip>
           </div>
@@ -69,7 +71,6 @@ export default function TvSeasonEpisodes({ seriesId, seasonNumber }) {
 
   if (data) {
     const { episodes } = data;
-    console.log(episodes);
 
     return (
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
