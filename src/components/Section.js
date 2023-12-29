@@ -26,7 +26,10 @@ function Section({ as: Element = "section", children, className, ...props }) {
   return (
     <ErrorBoundary fallback={<SectionFallback />}>
       <Element
-        className={twMerge("px-5 lg:px-8 mb-6 md:mb-8", className)}
+        className={twMerge(
+          "px-5 lg:px-8 mb-6 md:mb-8 lg:mb-12 xl:mb-16 2xl:mb-18",
+          className
+        )}
         {...props}
       >
         {children}
