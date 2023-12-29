@@ -36,73 +36,77 @@ async function MediaHero({ mediaType, mediaId }) {
 
   return (
     <Section>
-      <Section.Content className="relative rounded-lg overflow-hidden">
-        <MediaCard.Backdrop
-          className="pointer-events-none absolute inset-0 block w-full h-full animate-backdrop"
-          path={data.backdropPath}
-        />
+      <Section.Content className="flex gap-x-[5%]">
+        <div className="flex-1">
+          <div className="relative rounded-lg overflow-hidden">
+            <MediaCard.Backdrop
+              className="pointer-events-none absolute inset-0 block w-full h-full animate-backdrop"
+              path={data.backdropPath}
+            />
 
-        <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-tl from-dark-blue/10 to-dark-blue"></div>
-        <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-bl from-dark-blue/10 to-dark-blue"></div>
-        <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
-        <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
+            <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-tl from-dark-blue/10 to-dark-blue"></div>
+            <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-bl from-dark-blue/10 to-dark-blue"></div>
+            <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
+            <div className="pointer-events-none absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-r from-dark-blue to-dark-blue/5"></div>
 
-        <div className="relative z-50 min-h-[60vh] lg:flex lg:items-start lg:gap-x-[3%]">
-          <div className="lg:flex-auto hidden lg:block max-w-[15%] lg:pt-8">
-            <MediaCard.Poster path={data.posterPath} />
-          </div>
-          <div className="lg:flex-1 p-4 lg:p-8">
-            <div className="mb-2">
-              <h1 className="text-heading-sm !text-yellow md:text-heading-lg !font-semibold">
-                {data.title}
-              </h1>
-              <h2 className="text-xl md:text-2xl text-white/80 italic">
-                {data.tagline}
-              </h2>
-            </div>
-            <div className="mb-4 md:flex md:gap-2">
-              <div className="mb-2">
-                <Suspense
-                  fallback=<span className="w-20 h-7 mr-8 rounded-lg bg-semi-dark-blue animate-pulse"></span>
-                >
-                  <ImdbRatingChip id={data.imdbId} />
-                </Suspense>
+            <div className="relative p-4 lg:pl-0 lg:p-8 z-50 min-h-fit lg:flex lg:items-start lg:gap-x-[3%]">
+              <div className="lg:flex-auto hidden lg:block max-w-[15%]">
+                <MediaCard.Poster path={data.posterPath} />
               </div>
-              <div className="mb-4 flex items-start gap-2">
-                {isMovie && (
-                  <Tooltip text="Year">
-                    <Chip>
-                      {data.releaseDate
-                        ?.split("-")
-                        .filter((segment) => segment.length === 4)}
-                    </Chip>
-                  </Tooltip>
-                )}
-                {isMovie && (
-                  <Tooltip text="Runtime">
-                    <Chip>{data.runtime}</Chip>
-                  </Tooltip>
-                )}
-                <Tooltip text="Status" className="bg-yellow text-black">
-                  <Chip>{data.status}</Chip>
-                </Tooltip>
-              </div>
-            </div>
-            <div>
-              <p className="mb-6 md:text-lg lg:text-xl !text-white/65">
-                {data.overview}
-              </p>
-              <div>
-                {data.genres?.map((genre) => {
-                  return (
-                    <Chip
-                      key={genre?.id}
-                      className="mb-2 mr-2 bg-gradient-to-tl from-[rgb(41,49,136)] to-[rgb(111,17,211)]"
+              <div className="lg:flex-1">
+                <div className="mb-2">
+                  <h1 className="text-heading-sm !text-yellow md:text-heading-lg !font-semibold">
+                    {data.title}
+                  </h1>
+                  <h2 className="text-xl md:text-2xl text-white/80 italic">
+                    {data.tagline}
+                  </h2>
+                </div>
+                <div className="mb-4 md:flex md:gap-2">
+                  <div className="mb-2">
+                    <Suspense
+                      fallback=<span className="w-20 h-7 mr-8 rounded-lg bg-semi-dark-blue animate-pulse"></span>
                     >
-                      {genre?.name}
-                    </Chip>
-                  );
-                })}
+                      <ImdbRatingChip id={data.imdbId} />
+                    </Suspense>
+                  </div>
+                  <div className="mb-4 flex items-start gap-2">
+                    {isMovie && (
+                      <Tooltip text="Year">
+                        <Chip>
+                          {data.releaseDate
+                            ?.split("-")
+                            .filter((segment) => segment.length === 4)}
+                        </Chip>
+                      </Tooltip>
+                    )}
+                    {isMovie && (
+                      <Tooltip text="Runtime">
+                        <Chip>{data.runtime}</Chip>
+                      </Tooltip>
+                    )}
+                    <Tooltip text="Status" className="bg-yellow text-black">
+                      <Chip>{data.status}</Chip>
+                    </Tooltip>
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-6 md:text-lg lg:text-xl !text-white/65">
+                    {data.overview}
+                  </p>
+                  <div>
+                    {data.genres?.map((genre) => {
+                      return (
+                        <Chip
+                          key={genre?.id}
+                          className="mb-2 mr-2 bg-gradient-to-tl from-[rgb(41,49,136)] to-[rgb(111,17,211)]"
+                        >
+                          {genre?.name}
+                        </Chip>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
