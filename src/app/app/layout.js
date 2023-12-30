@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+import MediaHoverCard from "./_components/MediaHoverCard";
 import SearchBar from "./_components/SearchBar";
 import Ambience from "@/components/Ambience";
 
@@ -17,7 +18,10 @@ export default function DashboardLayout({ children }) {
                 <SearchBar />
               </div>
               {/* main content area */}
-              <div className="pb-2">{children}</div>
+              <div className="pb-2">
+                <MediaHoverCard />
+                {children}
+              </div>
             </div>
           </main>
         </div>
