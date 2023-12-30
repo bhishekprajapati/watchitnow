@@ -63,20 +63,25 @@ MediaCard.Poster = ({ className, path, ...props }) => {
 
 MediaCard.Backdrop = ({ className, path, ...props }) => {
   return (
-    <picture className={twMerge("aspect-video", className)} {...props}>
-      <source
-        srcSet={`${IMG_BASE_URL}/original${path}`}
-        media="(min-width: 1800px)"
-      />
-      <source
-        srcSet={`${IMG_BASE_URL}/w1280${path}`}
-        media="(min-width: 1260px)"
-      />
-      <img
-        className="w-full h-full object-cover object-center"
-        src={`${IMG_BASE_URL}/w780${path}`}
-      />
-    </picture>
+    <div className="aspect-video relative overflow-hidden rounded-xl">
+      {!path && (
+        <img
+          className="w-full h-full object-cover object-center"
+          src="/no-poster.png"
+          decoding="async"
+          loading="lazy"
+        />
+      )}
+
+      {path && (
+        <LazyImage
+          alt="poster"
+          src={`${IMG_BASE_URL}/original${path}`}
+          blurSrc={`${IMG_BASE_URL}/w92${path}`}
+          decoding="async"
+        />
+      )}
+    </div>
   );
 };
 

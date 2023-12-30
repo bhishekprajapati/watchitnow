@@ -1,5 +1,3 @@
-"use client";
-
 import MediaCard from "@/components/MediaCard";
 
 import PropTypes from "prop-types";
