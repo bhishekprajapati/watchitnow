@@ -41,7 +41,7 @@ export default function MediaHoverCard({}) {
 
   return (
     <div
-      className="fixed z-[1000] mt-4 ml-4 rounded-md overflow-hidden pointer-events-none"
+      className="hidden [@media(hover:hover)]:block fixed z-[1000] mt-4 ml-4 rounded-md overflow-hidden pointer-events-none"
       style={{ left: `${x}px`, top: `${y}px`, opacity: isVisible ? 1 : 0 }}
     >
       <div
