@@ -16,7 +16,7 @@ export default function MediaDisplayCard({ data, variant = "poster" }) {
     <MediaCard
       data-media-card
       data-title={title}
-      data-overview={data.overview.substring(0, 80)}
+      data-overview={data.overview.substring(0, 120)}
       data-year={
         type === "movie"
           ? data.releaseYear

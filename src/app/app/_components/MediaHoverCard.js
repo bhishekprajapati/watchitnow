@@ -51,12 +51,12 @@ export default function MediaHoverCard({}) {
         }}
       >
         <div className="p-4 w-full h-full bg-dark-blue/75 backdrop-blur-2xl ">
-          <h3 className="mb-4 text-xl line-clamp-3 text-yellow font-semibold">
+          <h3 className="mb-3 text-xl line-clamp-3 text-yellow font-semibold">
             {title}
           </h3>
-          <Chip className="mb-8">{releaseYear}</Chip>
+          <Chip className="mb-6">{releaseYear}</Chip>
 
-          <p className="line-clamp-3">{overview}</p>
+          <p className="line-clamp-4">{overview}</p>
         </div>
       </div>
     </div>
