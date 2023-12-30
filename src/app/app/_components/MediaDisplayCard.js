@@ -11,7 +11,7 @@ MediaDisplayCard.propTypes = {
 
 export default function MediaDisplayCard({ data, variant = "poster" }) {
   const { id, title, type, posterPath, backdropPath } = data;
-  console.log(data);
+
   return (
     <MediaCard
       data-media-card
