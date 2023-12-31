@@ -63,7 +63,13 @@ MediaCard.Poster = ({ className, path, ...props }) => {
 
 MediaCard.Backdrop = ({ className, path, ...props }) => {
   return (
-    <div className="aspect-video relative overflow-hidden rounded-xl">
+    <div
+      className={twMerge(
+        "aspect-video relative overflow-hidden rounded-xl",
+        className
+      )}
+      {...props}
+    >
       {!path && (
         <img
           className="w-full h-full object-cover object-center"
