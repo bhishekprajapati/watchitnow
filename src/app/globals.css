@@ -50,7 +50,7 @@
     @apply text-greyish-blue fill-greyish-blue hover:opacity-50 transition-colors transition-opacity duration-500;
 
     &.active {
-      @apply text-white fill-white;
+      @apply text-red;
     }
   }
 }
