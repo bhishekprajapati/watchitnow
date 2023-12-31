@@ -36,7 +36,6 @@ export default function NavBar() {
           <Link href="/app/home">
             <IconHome
               className={`nav-link ${pathName === "/app/home" ? "active" : ""}`}
-              fill="true"
             />
           </Link>
         </li>
@@ -68,7 +67,6 @@ export default function NavBar() {
               className={`nav-link ${
                 pathName === "/app/bookmarks" ? "active" : ""
               }`}
-              fill="true"
             />
           </Link>
         </li>
