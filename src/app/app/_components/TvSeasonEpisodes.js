@@ -42,7 +42,7 @@ function EpisodeButton({ episode, onClick }) {
       className="p-4 rounded-sm flex items-center justify-between gap-x-2 bg-gradient-to-tr from-dark-blue to-semi-dark-blue/50 group hover:to-semi-dark-blue shadow-xl hover:text-red hover:shadow-semi-dark-blue/50 transition-all duration-250"
       onClick={onClick}
     >
-      <span className="line-clamp-1">{`${episode["episode_number"]}.  ${episode.name}`}</span>
+      <span className="line-clamp-1 text-left">{`${episode["episode_number"]}.  ${episode.name}`}</span>
       <span className="w-6 h-6">
         <IconPlayerPlayFilled
           size={24}
