@@ -3,12 +3,12 @@ import classNames from "classnames";
 
 function Grid({ as: GridContainer = "ul", className, children, ...props }) {
   const classes = classNames(
-    "grid grid-cols-3 gap-4",
-    "sm:grid-cols-4",
-    "md:grid-cols-5 md:gap-6",
-    "lg:grid lg:grid-cols-5 lg:gap-6",
-    "xl:grid-cols-6",
-    "2xl:grid-cols-7"
+    "grid gap-6",
+    "grid-cols-2",
+    "sm:grid-cols-3",
+    "md:grid-cols-4",
+    "xl:grid-cols-5",
+    "2xl:grid-cols-6"
   );
 
   return (
