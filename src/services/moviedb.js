@@ -22,9 +22,10 @@ export async function getSeasonInfo({ seriesId, seasonNumber }) {
   return res;
 }
 
-export async function getMovieRecommendation(params = { id }) {
+export async function getMovieRecommendation(params = { id, page: 1 }) {
   const res = await retry(
-    async () => await moviedb.movieRecommendations({ id: params.id })
+    async () =>
+      await moviedb.movieRecommendations({ id: params.id, page: params.page })
   );
 
   return {
@@ -37,9 +38,10 @@ export async function getMovieRecommendation(params = { id }) {
   };
 }
 
-export async function getTvRecommendation(params = { id }) {
+export async function getTvRecommendation(params = { id, page: 1 }) {
   const res = await retry(
-    async () => await moviedb.tvRecommendations({ id: params.id })
+    async () =>
+      await moviedb.tvRecommendations({ id: params.id, page: params.page })
   );
 
   return {

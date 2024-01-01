@@ -12,7 +12,11 @@ export default function MediaRecommendation({ mediaType, mediaId }) {
     <MediaSection
       title="You might like"
       layout="grid"
-      fetcher={async () => await recommender({ id: mediaId })}
+      fetcher={async (params = { page: 1 }) => {
+        "use server";
+        return await recommender({ id: mediaId, page: params.page });
+      }}
+      infinite
     />
   );
 }
