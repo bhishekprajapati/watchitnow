@@ -52,17 +52,19 @@ export async function getTvRecommendation(params = { id }) {
   };
 }
 
-export async function getTrendingMedia(
-  params = {
-    media_type: "all",
-    time_window: "day",
-  }
-) {
+export async function getTrendingMedia(params = { page: 1 }) {
   const res = await retry(
     async () =>
-      await moviedb.trending(params, {
-        timeout: 1000,
-      })
+      await moviedb.trending(
+        {
+          page: params.page,
+          media_type: "all",
+          time_window: "day",
+        },
+        {
+          timeout: 1000,
+        }
+      )
   );
 
   return {

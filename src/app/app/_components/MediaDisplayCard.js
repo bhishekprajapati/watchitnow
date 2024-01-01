@@ -18,9 +18,10 @@ export default function MediaDisplayCard({ data, variant = "poster" }) {
       data-title={title}
       data-overview={data.overview.substring(0, 120)}
       data-year={
-        type === "movie"
+        data?.year ||
+        (type === "movie"
           ? data.releaseYear
-          : data?.airDates?.first.split("-").at(0)
+          : data?.airDates?.first.split("-").at(0))
       }
     >
       <MediaLink className="block mb-2" type={type} id={id}>
