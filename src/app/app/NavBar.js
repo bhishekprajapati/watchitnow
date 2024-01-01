@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import Link from "@/components/Link";
-import {
-  IconHome,
-  IconMovie,
-  IconDeviceTv,
-  IconBookmark,
-} from "@tabler/icons-react";
+import { IconHome, IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { Avatar } from "@nextui-org/avatar";
 import { Spinner } from "@nextui-org/spinner";
 import {
@@ -57,16 +52,6 @@ export default function NavBar() {
                 pathName === "/app/tv-series" ? "active" : ""
               }`}
               fill="true"
-            />
-          </Link>
-        </li>
-
-        <li>
-          <Link href="/app/bookmarks">
-            <IconBookmark
-              className={`nav-link ${
-                pathName === "/app/bookmarks" ? "active" : ""
-              }`}
             />
           </Link>
         </li>
