@@ -23,6 +23,7 @@ export default function Page() {
         title="Upcoming"
         layout="grid"
         fetcher={getUpcomingMovies}
+        infinite
       />
     </>
   );

@@ -19,7 +19,12 @@ export default function Page() {
         fetcher={getAiringTodayTv}
       />
       <MediaSection title="On The Air" fetcher={getOnTheAirTv} />
-      <MediaSection title="Top Rated" layout="grid" fetcher={getTopRatedTv} />
+      <MediaSection
+        title="Top Rated"
+        layout="grid"
+        fetcher={getTopRatedTv}
+        infinite
+      />
     </>
   );
 }
