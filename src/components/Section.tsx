@@ -1,3 +1,4 @@
+import type { FC, ElementType, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import ErrorBoundary from "./errors/ErrorBoundary";
 import { IconAlertTriangle } from "@tabler/icons-react";
@@ -22,7 +23,17 @@ function SectionFallback() {
   );
 }
 
-function Section({ as: Element = "section", children, className, ...props }) {
+type Props = {
+  as?: ElementType;
+  children: ReactNode;
+  className?: string;
+};
+
+const Section: FC<Props> & {
+  Header: FC<Props>;
+  Title: FC<Props>;
+  Content: FC<Props>;
+} = function ({ as: Element = "section", children, className = "", ...props }) {
   return (
     <ErrorBoundary fallback={<SectionFallback />}>
       <Element
@@ -36,12 +47,12 @@ function Section({ as: Element = "section", children, className, ...props }) {
       </Element>
     </ErrorBoundary>
   );
-}
+};
 
 Section.Header = ({
   as: Element = "header",
   children,
-  className,
+  className = "",
   ...props
 }) => {
   const classes = twMerge(

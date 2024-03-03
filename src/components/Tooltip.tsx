@@ -1,13 +1,14 @@
+import type { JSX, FC } from "react";
 import React from "react";
-import PropTypes from "prop-types";
 import { twMerge as twM } from "tailwind-merge";
 
-Tooltip.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string.isRequired,
+type TooltipProps = {
+  text: string;
+  className?: string;
+  children: JSX.Element;
 };
 
-export default function Tooltip({ text, children, className }) {
+const Tooltip: FC<TooltipProps> = function ({ text, children, className }) {
   const css = twM(
     "relative",
     "before:content-[attr(data-tooltip)]",
@@ -22,14 +23,12 @@ export default function Tooltip({ text, children, className }) {
     className
   );
 
-  return (
-    <>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          "data-tooltip": text,
-          className: css,
-        });
-      })}
-    </>
-  );
-}
+  return React.Children.map(children, (child) => {
+    return React.cloneElement(child, {
+      "data-tooltip": text,
+      className: css,
+    });
+  });
+};
+
+export default Tooltip;
