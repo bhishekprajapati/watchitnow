@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 
-export default function useMouseCoordinates() {
-  const [coordinates, setCoordinates] = useState({ x: null, y: null });
+type Coordinates = { x: number | null; y: number | null };
 
-  function handleMouseMove(e) {
-    const { clientX, clientY } = e;
-    setCoordinates({ x: clientX, y: clientY });
+export default function useMouseCoordinates() {
+  const [coordinates, setCoordinates] = useState<Coordinates>({
+    x: null,
+    y: null,
+  });
+
+  function handleMouseMove(e: globalThis.MouseEvent) {
+    setCoordinates({ x: e.clientX, y: e.clientY });
   }
 
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
-
     return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
 function useActiveElement() {
-  const [activeElement, setActiveElement] = useState(null);
+  const [activeElement, setActiveElement] =
+    useState<typeof document.activeElement>(null);
 
   useEffect(() => {
     const handleFocusChange = () => {
