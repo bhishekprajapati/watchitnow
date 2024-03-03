@@ -1,6 +1,6 @@
+import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-/**@type {import('next-auth').NextAuthOptions} */
 export default {
   providers: [
     GoogleProvider({
@@ -13,4 +13,4 @@ export default {
     error: "/auth/error",
     newUser: "/auth/register",
   },
-};
+} as NextAuthOptions;
