@@ -1,7 +1,7 @@
 "use client";
 
-import RuntimeError from "@/components/errors/RuntimeError";
+import ErrorPage from "@/components/ui/ErrorPage";
 
 export default function Error() {
-  return <RuntimeError />;
+  return <ErrorPage />;
 }

@@ -1,6 +1,6 @@
 import type { FC, ElementType, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
-import ErrorBoundary from "@/components/errors/ErrorBoundary";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { IconAlertTriangle } from "@tabler/icons-react";
 
 function SectionFallback() {
