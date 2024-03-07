@@ -1,6 +1,6 @@
 "use client";
 
-import Chip from "@/components/Chip";
+import Chip from "@/components/ui/Chip";
 import List from "@/components/ui/List";
 import IconVerified from "@/components/Icons/IconVerified";
 import {

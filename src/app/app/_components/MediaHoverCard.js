@@ -1,6 +1,6 @@
 "use client";
 
-import Chip from "@/components/Chip";
+import Chip from "@/components/ui/Chip";
 import useMouseCoordinates from "@/hooks/useMouseCoordinates";
 import { useState } from "react";
 

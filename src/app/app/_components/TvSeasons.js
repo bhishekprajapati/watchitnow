@@ -1,6 +1,6 @@
 "use client";
 
-import Chip from "@/components/Chip";
+import Chip from "@/components/ui/Chip";
 import { Media } from "@/components/MediaCard";
 
 import {

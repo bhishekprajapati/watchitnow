@@ -1,8 +1,8 @@
 import { findMedia, getImdbRating } from "@/services/moviedb";
 import { Media } from "@/components/MediaCard";
 import Section from "@/components/Section";
-import Tooltip from "@/components/Tooltip";
-import Chip from "@/components/Chip";
+import Tooltip from "@/components/ui/Tooltip";
+import Chip from "@/components/ui/Chip";
 
 import { Suspense } from "react";
 
