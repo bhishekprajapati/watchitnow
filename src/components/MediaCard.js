@@ -1,11 +1,11 @@
 import LazyImage from "./ui/LazyImage";
 import ButtonPlay from "@/components/ButtonPlay";
-import MediaLink from "@/app/app/_components/MediaLink";
 
-import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
+import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { IconMovie, IconDeviceTv, IconPhoto } from "@tabler/icons-react";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p";
 
@@ -162,6 +162,15 @@ Media.Title = ({ as: Element = "h3", children, className, ...props }) => {
   );
 };
 
+const MediaLink = function ({ children, className, type, id, ...props }) {
+  const href = `/app/${type}/${id}`;
+  return (
+    <Link href={href} className={className} {...props}>
+      {children}
+    </Link>
+  );
+};
+
 const MediaCard = function ({ data, variant = "poster" }) {
   const { id, title, type, posterPath, backdropPath } = data;
 
@@ -227,5 +236,4 @@ const Skeleton = ({ variant = "poster" }) => {
   );
 };
 
-export { Media, Skeleton };
-export default MediaCard;
+export { Media, MediaCard, MediaLink, Skeleton };

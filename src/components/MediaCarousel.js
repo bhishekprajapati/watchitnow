@@ -4,7 +4,7 @@ import ButtonPlay from "./ButtonPlay";
 import Section from "@/components/ui/Section";
 import { Media } from "@/components/MediaCard";
 import useViewportSize from "@/hooks/useViewportSize";
-import MediaLink from "@/app/app/_components/MediaLink";
+import { MediaLink } from "@/components/MediaCard";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";

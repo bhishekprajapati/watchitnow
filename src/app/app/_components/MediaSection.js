@@ -1,7 +1,8 @@
 import List from "@/components/ui/List";
 import Grid from "@/components/ui/Grid";
 import Section from "@/components/ui/Section";
-import MediaCard, {
+import {
+  MediaCard,
   Skeleton as MediaCardSkeleton,
 } from "@/components/MediaCard";
 import InfiniteScrollMediaDisplay from "./InfiniteScrollMediaDisplay";
