@@ -1,6 +1,6 @@
 "use client";
 
-import NavBar from "./NavBar";
+import NavBar from "@/components/NavBar";
 import MediaHoverCard from "./_components/MediaHoverCard";
 import SearchBar from "./_components/SearchBar";
 

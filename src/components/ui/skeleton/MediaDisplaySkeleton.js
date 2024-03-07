@@ -1,9 +1,8 @@
 "use client";
 
-import Section from "@/components/ui/Section";
 import Grid from "@/components/ui/Grid";
 import List from "@/components/ui/List";
-import MediaCardSkeleton from "./MediaCardSkeleton";
+import { Skeleton as MediaCardSkeleton } from "@/components/MediaCard";
 
 export default function MediaDisplaySkeleton({ variant = "list" }) {
   const data = new Array(20).fill(0);

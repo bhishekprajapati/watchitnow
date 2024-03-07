@@ -5,7 +5,7 @@ import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 
 import { moviedb } from "@/services/db";
 import { Suspense } from "react";
-import MediaVideosSkeleton from "@/app/ui/skeleton/MediaVideosSkeleton";
+import MediaVideosSkeleton from "@/components/ui/skeleton/MediaVideosSkeleton";
 import MediaRecommendation from "../../_components/MediaRecommendation";
 import TvSeasons from "../../_components/TvSeasons";
 import { getSeasons } from "@/services/moviedb";

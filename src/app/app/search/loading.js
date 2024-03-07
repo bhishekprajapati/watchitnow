@@ -1,5 +1,5 @@
 import Section from "@/components/ui/Section";
-import MediaDisplaySkeleton from "@/app/ui/skeleton/MediaDisplaySkeleton";
+import MediaDisplaySkeleton from "@/components/ui/skeleton/MediaDisplaySkeleton";
 
 export default async function loading() {
   return (

@@ -3,12 +3,7 @@
 import Chip from "@/components/ui/Chip";
 import List from "@/components/ui/List";
 import IconVerified from "@/components/Icons/IconVerified";
-import {
-  IconBrandYoutubeFilled,
-  IconMoodSadFilled,
-  IconPlayerPlayFilled,
-} from "@tabler/icons-react";
-import { Button } from "@nextui-org/react";
+import { IconBrandYoutubeFilled, IconMoodSadFilled } from "@tabler/icons-react";
 import { useState } from "react";
 import classNames from "classnames";
 import LazyImage from "@/components/ui/LazyImage";
