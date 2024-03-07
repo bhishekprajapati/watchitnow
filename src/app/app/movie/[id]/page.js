@@ -1,6 +1,6 @@
 import Section from "@/components/ui/Section";
 import MediaCast from "../../_components/MediaCast";
-import MediaHero from "../../_components/MediaHero";
+import MediaHeroSection from "@/components/MediaHeroSection";
 import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 
 import { moviedb } from "@/services/db";
@@ -26,7 +26,7 @@ export default async function MoviePage({ params: { id: movieId } }) {
 
   return (
     <>
-      <MediaHero {...mediaProps} />
+      <MediaHeroSection {...mediaProps} />
       <MediaCast {...mediaProps} />
 
       <Section className="!pr-0">

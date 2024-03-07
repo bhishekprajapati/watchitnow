@@ -1,5 +1,5 @@
 import Section from "@/components/ui/Section";
-import MediaHero from "../../_components/MediaHero";
+import MediaHeroSection from "@/components/MediaHeroSection";
 import MediaCast from "../../_components/MediaCast";
 import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 
@@ -28,7 +28,7 @@ export default async function TvPage({ params: { id: tvId } }) {
 
   return (
     <>
-      <MediaHero {...mediaProps} />
+      <MediaHeroSection {...mediaProps} />
 
       <Section>
         <Section.Header>
