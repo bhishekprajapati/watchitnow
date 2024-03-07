@@ -1,5 +1,5 @@
 import { findMedia, getImdbRating } from "@/services/moviedb";
-import MediaCard from "@/components/MediaCard";
+import { Media } from "@/components/MediaCard";
 import Section from "@/components/Section";
 import Tooltip from "@/components/Tooltip";
 import Chip from "@/components/Chip";
@@ -39,7 +39,7 @@ async function MediaHero({ mediaType, mediaId }) {
       <Section.Content className="flex gap-x-[5%]">
         <div className="flex-1">
           <div className="relative rounded-lg overflow-hidden">
-            <MediaCard.Backdrop
+            <Media.Backdrop
               className="pointer-events-none absolute inset-0 block w-full h-full animate-backdrop"
               path={data.backdropPath}
             />
@@ -51,7 +51,7 @@ async function MediaHero({ mediaType, mediaId }) {
 
             <div className="relative p-4 lg:pl-0 lg:p-8 z-50 min-h-fit lg:flex lg:items-start lg:gap-x-[3%]">
               <div className="lg:flex-auto hidden lg:block max-w-[15%]">
-                <MediaCard.Poster path={data.posterPath} />
+                <Media.Poster path={data.posterPath} />
               </div>
               <div className="lg:flex-1">
                 <div className="mb-2">

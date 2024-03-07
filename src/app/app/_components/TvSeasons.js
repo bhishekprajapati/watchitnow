@@ -1,7 +1,7 @@
 "use client";
 
 import Chip from "@/components/Chip";
-import MediaCard from "@/components/MediaCard";
+import { Media } from "@/components/MediaCard";
 
 import {
   Dropdown,
@@ -86,7 +86,7 @@ export default function TvSeasons({ seasons }) {
           <div className="p-4 md:p-8 mb-4 rounded-md bg-dark-blue">
             <div key={selectedSeason.name} className="mb-4 flex gap-x-8">
               <div className="w-24 md:w-48">
-                <MediaCard.Poster path={selectedSeason["poster_path"]} />
+                <Media.Poster path={selectedSeason["poster_path"]} />
               </div>
               <div className="flex-1">
                 <h2 className="mb-1 md:mb-2 lg:mb-4 text-xl md:text-2xl lg:text-3xl font-semibold">

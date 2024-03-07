@@ -1,7 +1,7 @@
 "use client";
 
 import Chip from "@/components/Chip";
-import MediaCard from "@/components/MediaCard";
+import { Media } from "@/components/MediaCard";
 import ErrorFetch from "@/components/states/ErrorFetch";
 import { getSeasonInfo } from "@/services/moviedb";
 import { Modal, ModalBody, ModalContent, Spinner } from "@nextui-org/react";
@@ -14,7 +14,7 @@ function EpisodeInfo({ episode }) {
     <>
       <div className="my-2 flex gap-x-4">
         <div className="flex-[4] md:flex-[2] max-w-24">
-          <MediaCard.Still path={episode["still_path"]} />
+          <Media.Still path={episode["still_path"]} />
         </div>
         <div className="flex-[6] md:flex-[8]">
           <h3 className="mb-2 text-xl md:text-2xl line-clamp-3">
