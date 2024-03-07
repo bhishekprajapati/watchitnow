@@ -2,7 +2,7 @@
 
 import ButtonPlay from "./ButtonPlay";
 import Section from "@/components/Section";
-import MediaCard from "@/components/MediaCard";
+import { Media } from "@/components/MediaCard";
 import useViewportSize from "@/hooks/useViewportSize";
 import MediaLink from "@/app/app/_components/MediaLink";
 
@@ -34,9 +34,9 @@ function MediaSlide({ media, isBreakpoint }) {
     <MediaLink type={media.type} id={media.id} className="block">
       <div ref={containerRef} className={container}>
         {isBreakpoint ? (
-          <MediaCard.Backdrop path={media.backdropPath} />
+          <Media.Backdrop path={media.backdropPath} />
         ) : (
-          <MediaCard.Poster path={media.posterPath} />
+          <Media.Poster path={media.posterPath} />
         )}
         <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
           <ButtonPlay className="invisible [@media(hover:hover)]:visible" />

@@ -1,11 +1,14 @@
 import LazyImage from "./LazyImage";
+import ButtonPlay from "@/components/ButtonPlay";
+import MediaLink from "@/app/app/_components/MediaLink";
 
 import { IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { twMerge } from "tailwind-merge";
+import PropTypes from "prop-types";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p";
 
-function MediaCard({ as: Element = "article", children, className, ...props }) {
+function Media({ as: Element = "article", children, className, ...props }) {
   return (
     <Element className={twMerge("select-none", className)} {...props}>
       {children}
@@ -13,7 +16,7 @@ function MediaCard({ as: Element = "article", children, className, ...props }) {
   );
 }
 
-MediaCard.Still = ({ className, path, ...props }) => {
+Media.Still = ({ className, path, ...props }) => {
   return (
     <div className="aspect-[22/33] relative overflow-hidden rounded-xl">
       {!path && (
@@ -37,7 +40,7 @@ MediaCard.Still = ({ className, path, ...props }) => {
   );
 };
 
-MediaCard.Poster = ({ className, path, ...props }) => {
+Media.Poster = ({ className, path, ...props }) => {
   return (
     <div className="aspect-[22/33] relative overflow-hidden rounded-xl">
       {!path && (
@@ -61,7 +64,7 @@ MediaCard.Poster = ({ className, path, ...props }) => {
   );
 };
 
-MediaCard.Backdrop = ({ className, path, ...props }) => {
+Media.Backdrop = ({ className, path, ...props }) => {
   return (
     <div
       className={twMerge(
@@ -91,7 +94,7 @@ MediaCard.Backdrop = ({ className, path, ...props }) => {
   );
 };
 
-MediaCard.Meta = ({ as: Element = "div", children, className, ...props }) => {
+Media.Meta = ({ as: Element = "div", children, className, ...props }) => {
   const classes = twMerge("flex items-center gap-x-[0.38rem]", className);
   return (
     <Element className={classes} {...props}>
@@ -100,7 +103,7 @@ MediaCard.Meta = ({ as: Element = "div", children, className, ...props }) => {
   );
 };
 
-MediaCard.Year = ({ as: Element = "span", children, className, ...props }) => {
+Media.Year = ({ as: Element = "span", children, className, ...props }) => {
   const classes = twMerge(
     "text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light",
     className
@@ -112,7 +115,7 @@ MediaCard.Year = ({ as: Element = "span", children, className, ...props }) => {
   );
 };
 
-MediaCard.Type = ({ children, className, type }) => {
+Media.Type = ({ children, className, type }) => {
   const isMovie = type === "movie";
   const typeName = isMovie ? "Movie" : "TV Series";
 
@@ -132,7 +135,7 @@ MediaCard.Type = ({ children, className, type }) => {
   );
 };
 
-MediaCard.Lang = ({ as: Element = "span", children, className, ...props }) => {
+Media.Lang = ({ as: Element = "span", children, className, ...props }) => {
   const classes = twMerge(
     "text-[0.6875rem] md:text-[0.81rem] text-white text-opacity-75 font-light",
     className
@@ -145,7 +148,7 @@ MediaCard.Lang = ({ as: Element = "span", children, className, ...props }) => {
   );
 };
 
-MediaCard.Title = ({ as: Element = "h3", children, className, ...props }) => {
+Media.Title = ({ as: Element = "h3", children, className, ...props }) => {
   const classes = twMerge(
     "text-[0.875rem] md:text-[1.125rem] text-white font-medium line-clamp-1",
     className
@@ -158,4 +161,45 @@ MediaCard.Title = ({ as: Element = "h3", children, className, ...props }) => {
   );
 };
 
+const MediaCard = function ({ data, variant = "poster" }) {
+  const { id, title, type, posterPath, backdropPath } = data;
+
+  return (
+    <Media
+      className="relative group"
+      data-media-card
+      data-title={title}
+      data-overview={data.overview.substring(0, 120)}
+      data-year={
+        data?.year ||
+        (type === "movie"
+          ? data.releaseYear
+          : data?.airDates?.first.split("-").at(0))
+      }
+    >
+      <MediaLink className="block mb-2" type={type} id={id}>
+        {variant === "poster" ? (
+          <Media.Poster path={posterPath} />
+        ) : (
+          <Media.Backdrop
+            path={backdropPath}
+            className="rounded-md overflow-hidden"
+          />
+        )}
+        <div className="pointer-events-none absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+          <ButtonPlay />
+        </div>
+      </MediaLink>
+      <Media.Title className="[@media(hover:hover)]:hidden">
+        {title}
+      </Media.Title>
+    </Media>
+  );
+};
+
+MediaCard.propTypes = {
+  variant: PropTypes.oneOf(["poster", "backdrop"]),
+};
+
+export { Media };
 export default MediaCard;

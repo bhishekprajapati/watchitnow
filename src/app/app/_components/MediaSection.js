@@ -1,8 +1,7 @@
-import MediaDisplayCard from "./MediaDisplayCard";
-
 import List from "@/components/List";
 import Grid from "@/components/Grid";
 import Section from "@/components/Section";
+import MediaCard from "@/components/MediaCard";
 import InfiniteScrollMediaDisplay from "./InfiniteScrollMediaDisplay";
 import MediaCardSkeleton from "@/app/ui/skeleton/MediaCardSkeleton";
 
@@ -50,7 +49,7 @@ export function CardsDisplay({ dataList, variant, layout }) {
       {(Wrapper) => {
         return dataList.map((data) => (
           <Wrapper key={data.id}>
-            <MediaDisplayCard data={data} variant={variant} />
+            <MediaCard data={data} variant={variant} />
           </Wrapper>
         ));
       }}
