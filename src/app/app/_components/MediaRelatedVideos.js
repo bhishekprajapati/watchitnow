@@ -1,7 +1,7 @@
 "use client";
 
 import Chip from "@/components/Chip";
-import List from "@/components/List";
+import List from "@/components/ui/List";
 import IconVerified from "@/components/Icons/IconVerified";
 import {
   IconBrandYoutubeFilled,

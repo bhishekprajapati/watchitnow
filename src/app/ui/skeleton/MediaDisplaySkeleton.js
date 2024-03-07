@@ -1,8 +1,8 @@
 "use client";
 
 import Section from "@/components/Section";
-import Grid from "@/components/Grid";
-import List from "@/components/List";
+import Grid from "@/components/ui/Grid";
+import List from "@/components/ui/List";
 import MediaCardSkeleton from "./MediaCardSkeleton";
 
 export default function MediaDisplaySkeleton({ variant = "list" }) {

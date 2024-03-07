@@ -1,4 +1,4 @@
-import List from "@/components/List";
+import List from "@/components/ui/List";
 
 export default function MediaVideosSkeleton({}) {
   const videos = new Array(10).fill(1); // dummy

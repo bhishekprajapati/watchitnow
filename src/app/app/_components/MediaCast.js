@@ -1,4 +1,4 @@
-import List from "@/components/List";
+import List from "@/components/ui/List";
 import Section from "@/components/Section";
 import LazyImage from "@/components/LazyImage";
 import { getMovieCast, getTvCast } from "@/services/moviedb";

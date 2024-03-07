@@ -1,5 +1,5 @@
-import List from "@/components/List";
-import Grid from "@/components/Grid";
+import List from "@/components/ui/List";
+import Grid from "@/components/ui/Grid";
 import Section from "@/components/Section";
 import MediaCard from "@/components/MediaCard";
 import InfiniteScrollMediaDisplay from "./InfiniteScrollMediaDisplay";
