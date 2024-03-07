@@ -11,7 +11,7 @@ import {
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
 import classNames from "classnames";
-import LazyImage from "@/components/LazyImage";
+import LazyImage from "@/components/ui/LazyImage";
 import ButtonPlay from "@/components/ButtonPlay";
 
 const VideoCard = ({ data: video, isActive, onPlay }) => {

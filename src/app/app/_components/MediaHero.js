@@ -1,6 +1,6 @@
 import { findMedia, getImdbRating } from "@/services/moviedb";
 import { Media } from "@/components/MediaCard";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import Tooltip from "@/components/ui/Tooltip";
 import Chip from "@/components/ui/Chip";
 

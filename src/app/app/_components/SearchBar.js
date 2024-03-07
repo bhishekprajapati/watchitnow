@@ -1,6 +1,6 @@
 "use client";
 
-import LazyImage from "@/components/LazyImage";
+import LazyImage from "@/components/ui/LazyImage";
 import NoResults from "@/components/states/NoResults";
 import SearchError from "@/components/states/SearchError";
 import SearchProvider, { SearchContext } from "@/contexts/SearchProvider";

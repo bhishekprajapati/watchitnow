@@ -1,6 +1,6 @@
 import List from "@/components/ui/List";
-import Section from "@/components/Section";
-import LazyImage from "@/components/LazyImage";
+import Section from "@/components/ui/Section";
+import LazyImage from "@/components/ui/LazyImage";
 import { getMovieCast, getTvCast } from "@/services/moviedb";
 import { IconExclamationMark } from "@tabler/icons-react";
 import { IconUserOff } from "@tabler/icons-react";

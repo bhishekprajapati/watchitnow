@@ -1,6 +1,6 @@
 "use client";
 
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import Grid from "@/components/ui/Grid";
 import List from "@/components/ui/List";
 import MediaCardSkeleton from "./MediaCardSkeleton";

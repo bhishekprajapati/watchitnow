@@ -1,4 +1,4 @@
-import LazyImage from "./LazyImage";
+import LazyImage from "./ui/LazyImage";
 import ButtonPlay from "@/components/ButtonPlay";
 import MediaLink from "@/app/app/_components/MediaLink";
 

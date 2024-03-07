@@ -1,4 +1,4 @@
-import Section from "../Section";
+import Section from "@/components/ui/Section";
 import { IconServerOff } from "@tabler/icons-react";
 
 export default function ErrorFetch({}) {

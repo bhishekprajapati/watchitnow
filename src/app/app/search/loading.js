@@ -1,4 +1,4 @@
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import MediaDisplaySkeleton from "@/app/ui/skeleton/MediaDisplaySkeleton";
 
 export default async function loading() {
