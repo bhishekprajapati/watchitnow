@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "@/components/Link";
+import Link from "next/link";
 import { IconHome, IconMovie, IconDeviceTv } from "@tabler/icons-react";
 import { Avatar } from "@nextui-org/avatar";
 import { Spinner } from "@nextui-org/spinner";

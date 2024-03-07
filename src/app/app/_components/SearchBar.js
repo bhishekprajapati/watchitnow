@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "@/components/Link";
 import LazyImage from "@/components/LazyImage";
 import NoResults from "@/components/states/NoResults";
 import SearchError from "@/components/states/SearchError";
 import SearchProvider, { SearchContext } from "@/contexts/SearchProvider";
 import { debounce } from "@/utils";
 
+import Link from "next/link";
 import classNames from "classnames";
 import { useContext } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
