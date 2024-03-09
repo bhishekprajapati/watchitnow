@@ -1,5 +1,5 @@
 import Section from "@/components/ui/Section";
-import MediaCast from "../../_components/MediaCast";
+import MediaCast from "@/components/MediaCast";
 import MediaHeroSection from "@/components/MediaHeroSection";
 import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 

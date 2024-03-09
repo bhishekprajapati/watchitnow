@@ -1,6 +1,6 @@
 import Section from "@/components/ui/Section";
 import MediaHeroSection from "@/components/MediaHeroSection";
-import MediaCast from "../../_components/MediaCast";
+import MediaCast from "@/components/MediaCast";
 import MediaRelatedVideos from "../../_components/MediaRelatedVideos";
 
 import { moviedb } from "@/services/db";
